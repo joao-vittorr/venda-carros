@@ -13,12 +13,13 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{asset('venda-carros/css/styles.css')}}" rel="stylesheet" />
-        <link href="{{asset('venda-carros/css/stylescuston.css')}}" rel="stylesheet" />
-        <link href="{{asset('venda-carros/css/normalize.css')}}" rel="stylesheet" />
+        <link href="{{asset('clean-blog/css/styles.css')}}" rel="stylesheet" />
+        <link href="{{asset('clean-blog/css/stylescuston.css')}}" rel="stylesheet" />
+        <link href="{{asset('clean-blog/css/normalize.css')}}" rel="stylesheet" />
+        <link href="{{asset('clean-blog/css/stylescuston.css')}}" rel="stylesheet" />
     </head>
     <body>
-        <!-- Navigation-->
+        <!-- Barra de navegação-->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -37,7 +38,7 @@
                             <a class="a-topo" href="#">Vender</a>
                           </li>
                           <li class="nav-item">
-                            <a class="a-topo" href="login.html">Login</a>
+                            <a class="a-topo" href="{{asset('login.html')}}">Login</a>
                           </li>
                           <li class="nav-item">
                             <a class="a-topo" href="#">Ajuda</a>
@@ -48,7 +49,9 @@
                   </nav>
             </div>
         </nav> 
-        <!-- Masthead-->
+
+
+        <!-- Conteúdo do site-->
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
@@ -94,7 +97,8 @@
                 </div>
             </div>
         </header>
-        <!-- Icons Grid-->
+
+        <!-- Grid de veículos mais buscados -->
         <div class="row g-0 p-5 borda features-icons bg-light">
         <h1 class="blue text-white borda-redonda texte-center">Veículos mais buscados</h1>
         </div>
@@ -129,6 +133,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- Image Showcases-->
         <section class="showcase">
             <div class="container-fluid p-0">

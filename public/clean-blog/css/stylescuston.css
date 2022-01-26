@@ -1,0 +1,79 @@
+body{
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+}
+.logo-topo{
+
+}
+a{
+
+    text-decoration: none;
+}
+.bg-blue{
+    background-color: #0d6efd;
+}
+
+.a-topo{
+    color: #0d6efd;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.a-topo:hover{
+    background-color: #0d6efd;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.line_title{
+    bottom: 15px;
+    padding: 2px;
+    background-color: #0d6efd;
+    border-radius: 5px;
+}
+.text-white{
+    color:#ffffff;
+}
+.texte-center{
+    text-align: center;
+}
+.blue{
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+.borda-azul{
+    border: 3px solid #0d6efd ;
+}
+.borda-redonda{
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.alinhamentoForm{
+    width: 20%;
+
+}
+
+
+/* form */
+  
+  div.formContent a {
+    color: #0d6efd ;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display:inline-block;
+    margin: 40px 8px 10px 8px; 
+    color: #cccccc;
+  }
+  
+  
+  
