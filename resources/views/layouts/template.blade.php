@@ -15,13 +15,10 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset('clean-blog/css/styles.css')}}" rel="stylesheet" />
         <link href="{{asset('clean-blog/css/stylescuston.css')}}" rel="stylesheet" />
-    
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{asset('clean-blog/js/scripts.js')}}"></script>
-
         <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('js/jquery.mask.min.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
@@ -30,7 +27,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.html">AutoCloud | Vorox Motors</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
