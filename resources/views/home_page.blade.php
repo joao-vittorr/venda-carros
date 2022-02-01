@@ -10,7 +10,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Site de Vendas de Veículos</h1>
+                            <h1 class="mb-5">Site de Vendas de Veículos - O melhor de todos</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
