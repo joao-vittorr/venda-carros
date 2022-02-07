@@ -95,15 +95,14 @@
                     <div class="col-md-6">
                       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
-                          <strong class="d-inline-block mb-2 text-primary">Brasil</strong>
-                          <h3 class="mb-0">Featured post</h3>
-                          <div class="mb-1 text-muted">Nov 12</div>
-                          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="stretched-link">Continue reading</a>
+                          <strong class="d-inline-block mb-1 text-primary">Brasil</strong>
+                          <h3 class="mb-0">Carros mais vendidos do Brasil ficam até 35% mais caros em 2021; Creta e Strada puxam alta</h3>
+                          <div class="mb-1 text-muted">Fevereiro/2022</div>
+                          <p class="card-text mb-1">Pesquisa aponta que reajuste sobre os veículos mais vendidos no ano foi até 3,5 vezes maior do que a inflação oficial.</p>
+                          <a href="{{ route("post1")}}" class="stretched-link">Continue lendo...</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                
+                        <img width="300" src="{{asset('clean-blog/assets/img/hyundai-creta-platinum-016.jpg')}}" alt="Creta Hyundai">
                         </div>
                       </div>
                     </div>
@@ -117,7 +116,9 @@
                           <a href="#" class="stretched-link">Continue reading</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" 
+                          aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                          <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
                         </div>
                       </div>
                     </div>

@@ -23,6 +23,8 @@ Route::get('/about', [HomePageController::class,"about"])->name('about');
 Route::get('/posts', [App\Http\Controllers\PostController::class,"index"])->name('posts');
 Route::get('/contact', [ContactController::class,"index"])->name('contact');
 Route::post('/contact', [ContactController::class,"send"])->name('contact.send');
+Route::get('/post1', [App\Http\Controllers\PostController::class,"index"])->name('post1');
+
 
 Auth::routes();
 

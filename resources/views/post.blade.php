@@ -3,18 +3,21 @@
 
 @section('content')
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('{{asset('clean-blog/assets/img/post-bg.jpg')}}')">
+<header class="masthead" style="background-image: url('{{asset('clean-blog/assets/img/fiat-strada.jpg')}}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1>Man must explore, and this is exploration at its greatest</h1>
-                    <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                    <h1>Carros mais vendidos do Brasil ficam até 35% mais caros em 2021; Creta e Strada puxam alta</h1>
+                    <h2 class="subheading">Pesquisa aponta que reajuste sobre os veículos mais vendidos no ano foi até 3,5 vezes maior do que a inflação oficial</h2>
                     <span class="meta">
-                        Posted by
-                        <a href="#!">Start Bootstrap</a>
-                        on August 24, 2021
+                        Por Emily Nery - Auto Esporte
+                    <br/>
+                    <a href="https://autoesporte.globo.com/seu-bolso/noticia/2022/02/
+                    carros-mais-vendidos-do-brasil-ficam-ate-35percent-mais-caros-em-2021-creta-e-strada-puxam-alta.ghtml">Leia na íntrega</a>
                     </span>
+                    <p><small><i>05 de fevereiro de 2022</i></small></p>
+                       
                 </div>
             </div>
         </div>
@@ -25,27 +28,29 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
-                <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
-                <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
-                <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
-                <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
-                <h2 class="section-heading">The Final Frontier</h2>
-                <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-                <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-                <h2 class="section-heading">Reaching for the Stars</h2>
-                <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-                <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>
-                <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-                <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-                <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
+                <p class="text-justify">Muito acima do Índice Nacional de Preços ao Consumidor Amplo (IPCA) – a nossa inflação oficial – 
+                   que fechou em 10,06% em 2021, os 10 carros novos mais vendidos no Brasil ficaram até 35% mais caros.</p>
+                <p class="text-justify">Segundo levantamento da consultoria Kelley Blue Book (KBB), nem a popularidade destes veículos foi capaz 
+                   de espantar a hiperinflação dos preços, que ficou acima dos 14,8% – percentual do reajuste médio do Jeep Compass em 2021.</p>
+                <p class="text-justify">A líder de vendas no ano, Fiat Strada, ficou cerca de 33,9% mais cara. Seu valor médio em janeiro 
+                   era de R$ 76.986, mas encerrou o ano custando por volta de R$ 103.114.</p>
+                <p class="text-justify">Mesmo após trocar de motor e renovar o visual – mudanças que costumam vir acompanhadas de generosos reajustes –, 
+                   a irmã maior Toro concentrou um aumento bem menor, de 17,8%, mas ainda acima da inflação no período.</p>
+                <p class="text-justify">O mesmo não se pode afirmar do Hyundai Creta. O SUV que passou por uma reestilização profunda em agosto ficou 35% mais caro 
+                    entre janeiro e dezembro de 2021 – de R$ 90.497, saltou para R$ 122.151. Uma das possíveis explicações para essa alta 
+                    acentuada foi o lançamento da inédita versão topo de linha Ultimate 2.0, que chegou aos R$ 160 mil no final do ano.</p>
+                <img class="img-fluid" src="{{asset('clean-blog/assets/img/gol.jpg')}}" alt="Gol Volkswagen" />
+                <p class="text-justify">Por outro lado, nem os veteranos escaparam da hipervalorização do 0-km. Foi o caso do Volkswagen Gol, sexto carro mais 
+                    vendido no ano, que ficou 24,4% mais caro. O valor médio do hatch subiu R$ 14.547 no período e terminou dezembro custando R$ 74.263.</p>
+                <p class="text-justify">No entanto, o veículo de entrada que concentra o maior reajuste é o Fiat Mobi. Com um aumento percentual de 30,8%, o preço médio do pequeno 
+                   carro terminou dezembro em R$ 56.883. Atualmente, o modelo 0-km não sai por menos de R$ 60.990.</p>
+                <p class="text-justify">Curiosamente, o SUV mais vendido do Brasil, o Jeep Renegade, acumulou um reajuste até maior do que o Compass (14,8%), modelo que 
+                   foi reestilizado em 2021. O utilitário esportivo compacto encareceu em média 21,1% e chegou aos R$ 141.750 (média de preço de suas versões flex e a diesel).</p>
+                <p class="text-justify">Vale lembrar que no início deste ano o Renegade passou por um facelift e adotou o motor 1.3 turboflex, aposentando o motor a diesel.</p>
+                <blockquote class="blockquote"><p class="h3">Veja abaixo a tabela com as variações de preços dos 10 carros novos mais vendidos em 2021:</p></blockquote>
                 <p>
-                    Placeholder text by
-                    <a href="http://spaceipsum.com/">Space Ipsum</a>
-                    &middot; Images by
-                    <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
+                    Publicação produzida por
+                    <a href="https://autoesporte.globo.com/">Auto Esporte</a>
                 </p>
             </div>
         </div>
