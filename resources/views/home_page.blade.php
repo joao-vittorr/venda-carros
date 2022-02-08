@@ -102,7 +102,7 @@
                           <a href="{{ route("post1")}}" class="stretched-link">Continue lendo...</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                        <img width="300" src="{{asset('clean-blog/assets/img/hyundai-creta-platinum-016.jpg')}}" alt="Creta Hyundai">
+                            <img width="300" src="{{asset('clean-blog/assets/img/hyundai-creta-platinum-016.jpg')}}" alt="Creta Hyundai">
                         </div>
                       </div>
                     </div>
@@ -110,15 +110,13 @@
                       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                           <strong class="d-inline-block mb-2 text-success">Mundo</strong>
-                          <h3 class="mb-0">Post title</h3>
-                          <div class="mb-1 text-muted">Nov 11</div>
-                          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="stretched-link">Continue reading</a>
+                          <h3 class="mb-0">Dubai transforma superesportivo na ambulância mais rápida do mundo</h3>
+                          <div class="mb-1 text-muted">Fevereiro/2022</div>
+                          <p class="card-text mb-1">Ex-carro mais caro do mundo e estrela de Velozes e Furiosos, Lyfan Hypersport será a ambulância que não carrega paciente.</p>
+                          <a href="{{ route("post2")}}" class="stretched-link">Continue lendo...</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" 
-                          aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                          <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                            <img width="300" src="{{asset('clean-blog/assets/img/dubai-ambulancia.jpg')}}" alt="Dubai Ambulância">
                         </div>
                       </div>
                     </div>
@@ -126,28 +124,28 @@
                         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                           <div class="col p-4 d-flex flex-column position-static">
                             <strong class="d-inline-block mb-2 text-success">Dicas</strong>
-                            <h3 class="mb-0">Post title</h3>
-                            <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
-                          </div>
-                          <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                          </div>
+                            <h3 class="mb-0">Vai lavar o carro? Então confira essas 10 dicas muito úteis</h3>
+                          <div class="mb-1 text-muted">Abril/2021</div>
+                          <p class="card-text mb-1">Eis um guia prático para deixar seu automóvel limpinho e brilhando: procedimentos requer determinados cuidados</p>
+                          <a href="{{ route("post3")}}" class="stretched-link">Continue lendo...</a>
+                        </div>
+                            <div class="col-auto d-none d-lg-block">
+                             <img width="300" src="{{asset('clean-blog/assets/img/lavar-rodas.jpg')}}" alt="Lavar Rodas">
+                            </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                           <div class="col p-4 d-flex flex-column position-static">
                             <strong class="d-inline-block mb-2 text-success">Curiosidades</strong>
-                            <h3 class="mb-0">Post title</h3>
-                            <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
-                          </div>
-                          <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                          </div>
+                            <h3 class="mb-0">Dubai transforma superesportivo na ambulância mais rápida do mundo</h3>
+                          <div class="mb-1 text-muted">Fevereiro/2022</div>
+                          <p class="card-text mb-1">Ex-carro mais caro do mundo e estrela de Velozes e Furiosos, Lyfan Hypersport será a ambulância que não carrega paciente.</p>
+                          <a href="{{ route("post4")}}" class="stretched-link">Continue lendo...</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img width="300" src="{{asset('clean-blog/assets/img/dubai-ambulancia.jpg')}}" alt="Creta Hyundai">
+                        </div>
                         </div>
                       </div>
                   </div>

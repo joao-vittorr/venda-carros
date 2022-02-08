@@ -23,7 +23,10 @@ Route::get('/about', [HomePageController::class,"about"])->name('about');
 Route::get('/posts', [App\Http\Controllers\PostController::class,"index"])->name('posts');
 Route::get('/contact', [ContactController::class,"index"])->name('contact');
 Route::post('/contact', [ContactController::class,"send"])->name('contact.send');
-Route::get('/post1', [App\Http\Controllers\PostController::class,"index"])->name('post1');
+Route::get('/post1', [App\Http\Controllers\PostController1::class,"index"])->name('post1');
+Route::get('/post2', [App\Http\Controllers\PostController2::class,"index"])->name('post2');
+Route::get('/post3', [App\Http\Controllers\PostController3::class,"index"])->name('post3');
+Route::get('/post4', [App\Http\Controllers\PostController4::class,"index"])->name('post4');
 
 
 Auth::routes();
