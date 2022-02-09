@@ -46,8 +46,10 @@
                 <p class="text-justify">Por volta de 2019, a cidade de Abu Dhabi, também nos Emirados Árabes, comprou um dos exemplares do Lykan para atuar como viatura 
                     policial. Como sua produção foi limitada em apenas sete unidades, é provável que essa ambulância seja o mesmo veículo que trabalhou combatendo o crime 
                     na cidade vizinha.</p>
-                    Publicação produzida por
+                    <small>
+                        <i>Publicação produzida por</i>
                     <a href="https://quatrorodas.abril.com.br/">Quatro Rodas</a>
+                    </small>        
                 </p>
             </div>
         </div>

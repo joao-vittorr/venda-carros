@@ -48,10 +48,10 @@
                    foi reestilizado em 2021. O utilitário esportivo compacto encareceu em média 21,1% e chegou aos R$ 141.750 (média de preço de suas versões flex e a diesel).</p>
                 <p class="text-justify">Vale lembrar que no início deste ano o Renegade passou por um facelift e adotou o motor 1.3 turboflex, aposentando o motor a diesel.</p>
                 <blockquote class="blockquote"><p class="h3">Veja abaixo a tabela com as variações de preços dos 10 carros novos mais vendidos em 2021:</p></blockquote>
-                <p>
-                    Publicação produzida por
+                <small>
+                    <i>Publicação produzida por</i>
                     <a href="https://autoesporte.globo.com/">Auto Esporte</a>
-                </p>
+                </small>
             </div>
         </div>
     </div>
