@@ -6,18 +6,18 @@ a{
     text-decoration: none;
 }
 .bg-blue{
-    background-color: #0d6efd;
+    background-color: #0085A1;
 }
 
 .a-topo{
-    color: #0d6efd;
+    color: #0085A1;
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 .a-topo:hover{
-    background-color: #0d6efd;
+    background-color: #0085A1;
     color: white;
     padding-left: 10px;
     padding-right: 10px;
@@ -25,7 +25,7 @@ a{
 .line_title{
     bottom: 15px;
     padding: 2px;
-    background-color: #0d6efd;
+    background-color: #0085A1;
     border-radius: 5px;
 }
 .text-white{
@@ -35,11 +35,11 @@ a{
     text-align: center;
 }
 .blue{
-    background-color: #0d6efd;
+    background-color: #0085A1;
     color: #ffffff;
 }
 .borda-azul{
-    border: 3px solid #0d6efd ;
+    border: 3px solid #0085A1 ;
 }
 .borda-redonda{
     border-radius: 10px;
@@ -55,7 +55,7 @@ a{
 /* form */
   
   div.formContent a {
-    color: #0d6efd ;
+    color: #0085A1 ;
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
