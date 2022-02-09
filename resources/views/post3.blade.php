@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('{{asset('clean-blog/assets/img/carro-lavado.jpg')}}')">
+<header class="masthead_post" style="background-image: url('{{asset('clean-blog/assets/img/carro-lavado.jpg')}}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -34,7 +34,7 @@
                     clima mais seco, é arriscado. A água e o sabão sobre a carroceria podem secar rapidamente e manchar a pintura. O ideal é lavar o carro dentro de uma garagem 
                     coberta e bem iluminada.</p>
                 <span class="h2">2. Tapetes</span>
-                <img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/tapete.jpg')}}" alt="Tapete" />   
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/tapete.jpg')}}" alt="Tapete" /></p>  
                 <p class="text-justify">Tem mais uma coisinha antes de tacar água no veículo. Retire os tapetes de borracha dentro da cabine dos veículos e limpe-os, para dar 
                     tempo deles secarem enquanto você lava o carro. Use uma escova com cerdas macias e uma solução com água e sabão neutro (detergente, do amarelinho, serve) 
                     ou produto específico à venda em várias lojas de e-commerce.</p>
@@ -54,7 +54,7 @@
                 <p class="text-justify">Com a mangueira ou com baldes com água limpa – não as que você usou para limpar a esponja – tire todo o excesso de sabão. Sempre de cima 
                     para baixo, como se estivesse tomando banho.</p>
                 <span class="h2">5. Rodas e pneus</span>
-                <img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/lavar-rodasOriginal.jpg')}}" alt="Lavar Rodas" />
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/lavar-rodasOriginal.jpg')}}" alt="Lavar Rodas" /></p>
                 <p class="text-justify">Também com água e sabão neutro ou solução própria para as peças, use uma escova com cerdas macias – ou específica para limpeza de pneus 
                     para lavar as borrachas. Para as rodas também existem escovas especiais e menores para limpar as frestas dos aros e que não riscam o metal. </p>
                 <p class="text-justify">Em hipótese alguma use produtos abrasivos ou derivados de petróleo. Aqui é importante enxaguar cada conjunto roda/pneu antes de partir 
@@ -83,7 +83,7 @@
                      poeira com um pano de microfibra. Depois, em outro pano de microfibra, pingue um pouco “limpa-telas”, uma solução específica para esses monitores – é o mesmo 
                      que serve para limpar celulares, TVs, computadores e tablets. </p>
                 <span class="h2">9. E os vidros por dentro?</span>
-                <img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/higienizacao.jpg')}}" alt="Higienização" />
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/higienizacao.jpg')}}" alt="Higienização" /></p>
                 <p class="text-justify">Aqui, você não vai jogar água e sabão, claro, então retire o excesso de poeira e depois aplique aquele limpa-vidros com um borrifador e 
                     vá passando um pano limpo e macio – microfibra mais uma vez, ou que não solte fiapos. Para secar e retirar as manchas, vale usar o jornal novamente ou uma microfibra seca. </p>
                 <span class="h2">10. Para dar aquele brilho…</span>

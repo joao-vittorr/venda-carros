@@ -3,19 +3,19 @@
 
 @section('content')
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('{{asset('clean-blog/assets/img/dubai-ambulancia-completo.jpg')}}')">
+<header class="masthead_post" style="background-image: url('{{asset('clean-blog/assets/img/fiat_multipla_verde.jpg')}}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1>Dubai transforma superesportivo na ambulância mais rápida do mundo</h1>
-                    <h2 class="subheading">Ex-carro mais caro do mundo e estrela de Velozes e Furiosos, Lyfan Hypersport será a ambulância que não carrega pacientes</h2>
+                    <h1>10 curiosidades sobre carro que você precisa saber</h1>
+                    <h2 class="subheading">O que a Fiat Multipla, o Monza Clodovil e um gênio da GM que foi preso por tráfico de drogas têm em comum? Eles fazem parte da história automobilística</h2>
                     <span class="meta">
-                        Por João Vitor Ferreira - Quatro Rodas
+                        Por AutoPapo
                     <br/>
-                    <a href="https://quatrorodas.abril.com.br/noticias/dubai-transforma-superesportivo-na-ambulancia-mais-rapida-do-mundo/">Leia na íntrega</a>
+                    <a href="https://autopapo.uol.com.br/noticia/10-curiosidades-sobre-carro/">Leia na íntrega</a>
                     </span>
-                    <p><small><i>03 de fevereiro de 2022</i></small></p>
+                    <p><small><i>17 de janeiro de 2022</i></small></p>
                        
                 </div>
             </div>
@@ -27,28 +27,40 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p class="text-justify">Mantendo seu patamar extravagante, Dubai acaba de adicionar mais um superesportivo à sua frota 
-                    de veículos de emergência. Porém, diferente do habitual, o modelo não será usado como viatura policial, mas sim como ambulância.</p>
-                <p class="text-justify">O Lykan Hypersport, anunciado em 2013 pela empresa árabe W Motors, vai ajudar os paramédicos a se deslocarem mais rápido pela 
-                    cidade dos Emirados Árabes. Claramente, ele não é capaz de carregar pacientes e segundo as autoridades locais, o esportivo será usado em outras 
-                    situações de emergência.</p>
-                <p class="text-justify">“O lançamento do ‘Hypersport Responder’ reflete a posição única de Dubai como uma das principais cidades do mundo no campo 
-                    da inovação. A velocidade e as capacidades do carro podem reduzir significativamente o tempo de resposta durante emergências e garantir uma 
-                    intervenção oportuna.”, diz o executivo-chefe da Dubai Corporation for Ambulance Services, Khalifa bin Darrai, em comunicado.</p>
-                <p class="text-justify">Para atender às emergências de Dubai, o Lykan tem motor de seis cilindros biturbo, que desenvolve 750 cv e 101,9 kgfm de torque.</p>
-                <p class="text-justify">Segundo a W Motors, o modelo atinge até 395 km/h e acelera de 0 a 100km/h em apenas 2,8 segundos, fazendo do Hypersport Responder 
-                    a ambulância mais rápida do mundo, de acordo com a Dubai Corporation for Ambulance Services.</p>
-                <img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/hypersport_responder.jpg')}}" alt="HyperSport Responder" />
-                <p class="text-justify">O Lykan chegou a ser o carro mais caro do mundo na época de seu lançamento, quando custava cerca de U$ 3,4 milhões (ou aproximadamente 
-                    R$ 7 milhões na cotação da época). O modelo se destaca pelo seu luxo extremo, tendo diamantes nos faróis de LED, acabamento interno em ouro e titânio, e 
-                    um painel de instrumentos que cria hologramas em 3D.</p>
-                <p class="text-justify">O superesportivo também apareceu no filme Velozes e Furiosos 7.</p>
-                <p class="text-justify">Por volta de 2019, a cidade de Abu Dhabi, também nos Emirados Árabes, comprou um dos exemplares do Lykan para atuar como viatura 
-                    policial. Como sua produção foi limitada em apenas sete unidades, é provável que essa ambulância seja o mesmo veículo que trabalhou combatendo o crime 
-                    na cidade vizinha.</p>
-                    Publicação produzida por
-                    <a href="https://quatrorodas.abril.com.br/">Quatro Rodas</a>
+                <p class="text-justify">Você é craque? Acha que sabe tudo sobre carros? Listamos aqui algumas curiosidades sobre carro que podem surpreender até 
+                    aos mais bem informados. Indo desde fatos insólitos da indústria nacional a conspirações internacionais envolvendo executivos.</p>
+                <blockquote class="blockquote"><p class="h3">Confira aqui dez curiosidades do universo automotivo que irão te surpreender:</p></blockquote>
+                <p class="text-justify"> - Rowan Atkinson, o Mr. Bean, bateu seu McLaren F1 duas vezes. Nas duas vezes o carro foi restaurado pela própria McLaren. 
+                    O sortudo ainda conseguiu vender o supercarro para outro milionário por US$ 12 milhões.</p>
+                <p class="text-justify"> - Eike Batista já se aventurou no universo automobilístico. Ele fundou a JPX em 1992 e o primeiro veículo a ser produzido 
+                    pela empresa foi o utilitário Montez. O ricaço foi preso no começo de 2017 ano por conta da Operação Eficiência.</p>
+                <p class="text-justify"> - O primeiro rolê da Ferrari 125 S aconteceu no dia 12 de março de 1947. Esta é considerada a data oficial de 
+                    nascimento da fabricante italiana.</p>
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/ferrari.jpg')}}" alt="Ferrari" /></p>
+                <p class="text-justify">Certa vez uma concessionária da GM vendeu uma inusitada série do Monza: a Clodovil. Ela tinha acabamento com assinatura do 
+                    estilista, político e apresentador Clodovil Hernandes. Foi um fracasso de vendas, mas “um lu-xo” para a história automobilística brasileira.</p>
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/monza.jpg')}}" alt="Chevrolet Monza" /></p>
+                <p class="text-justify">Jerry Seinfeld, ícone da comédia, tem um web série chamada Comedians In Cars Getting Coffee, onde ele usa e abusa e de seu 
+                    acervo de modelos clássicos para dar voltinhas com celebridades. Seinfeld não faz graça apenas com personalidades do universo automobilístico. 
+                    O comediante já recebeu até mesmo o ex-presidente Barack Obama no seu Corvette Stingray.</p>
+                <p class="text-justify">Apesar do seu design horrendo, o Fiat Multipla ganhou vários prêmios, incluindo o de Melhor Carro para Famílias por quatro 
+                    anos seguidos na Top Gear Magazine. E seu design foi tão aclamado por artistas que o carro foi exposto no MoMA (Museum of Modern Art), em Nova Iorque.</p>
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/fiat-multipla.jpg')}}" alt="Fiat Multipla" /></p>
+                <p class="text-justify">O Veloster foi lançado em 2011, quando a Hyundai prometeu revolucionar os hatches do universo automobilístico. A verdade, 
+                    no entanto, é que o motor 1.6 adotado pelo modelo trazido para o Brasil gerava menos cavalos de potência que as propagandas da época anunciavam.</p>
+                <p class="text-justify">O alemão Wolfgang Sauer foi o grande responsável pela criação da Autolatina, joint venture formada por Volkswagen e Ford, 
+                    que durou de 1987 a 1996, focada nos mercados brasileiro e argentino. </p>
+                <p class="text-justify">John DeLorean, o homem por trás do DMC-12, veículo que se tornou um ícone do universo automobilístico por causa da 
+                    trilogia De Volta Para o Futuro, foi preso por tráfico de drogas. O gênio da General Motors foi inocentado, mas a história grudou em sua louca biografia. </p>
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/delorean.jpeg')}}" alt="John DeLorean" /></p>
+                <p class="text-justify">Em julho de 2013, o Alto (modelo fabricado pela Maruti, subsidiária da Suzuki) foi o grande campeão de vendas na Índia. 
+                    O kei car emplacou 18.206 unidades: uma vergonha para a história automobilística?
                 </p>
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/maruti-suzuki.jpg')}}" alt="Maruti Alto" /></p>
+                <small>
+                    <i>Publicação produzida por</i>
+                    <a href="https://autopapo.uol.com.br/">Auto Papo</a>
+                </small>
             </div>
         </div>
     </div>

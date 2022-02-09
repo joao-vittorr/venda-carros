@@ -4,7 +4,8 @@
 @section('content')
 
         <!-- Conteúdo do site-->
-        <header class="masthead">
+        <header class="masthead --bs-initial" style="background-image: url({{ asset('clean-blog/assets/img/capa_inicial.png')}}); max-width: 100%;
+        height: auto; background-size: cover">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
@@ -138,13 +139,14 @@
                         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                           <div class="col p-4 d-flex flex-column position-static">
                             <strong class="d-inline-block mb-2 text-success">Curiosidades</strong>
-                            <h3 class="mb-0">Dubai transforma superesportivo na ambulância mais rápida do mundo</h3>
-                          <div class="mb-1 text-muted">Fevereiro/2022</div>
-                          <p class="card-text mb-1">Ex-carro mais caro do mundo e estrela de Velozes e Furiosos, Lyfan Hypersport será a ambulância que não carrega paciente.</p>
+                            <h3 class="mb-0">10 curiosidades sobre carro que você precisa saber</h3>
+                          <div class="mb-1 text-muted">Janeiro/2022</div>
+                          <p class="card-text mb-1">O que a Fiat Multipla, o Monza Clodovil e um gênio da GM que foi preso por tráfico de drogas têm em comum? 
+                              Eles fazem parte da história automobilística</p>
                           <a href="{{ route("post4")}}" class="stretched-link">Continue lendo...</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img width="300" src="{{asset('clean-blog/assets/img/dubai-ambulancia.jpg')}}" alt="Creta Hyundai">
+                            <img width="300" src="{{asset('clean-blog/assets/img/multipla.jpeg')}}" alt="Fiat Multipla">
                         </div>
                         </div>
                       </div>

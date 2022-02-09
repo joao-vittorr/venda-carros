@@ -3,7 +3,7 @@
 
 @section('content')
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('{{asset('clean-blog/assets/img/dubai-ambulancia-completo.jpg')}}')">
+<header class="masthead_post" style="background-image: url('{{asset('clean-blog/assets/img/dubai-ambulancia-completo.jpg')}}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -38,7 +38,7 @@
                 <p class="text-justify">Para atender às emergências de Dubai, o Lykan tem motor de seis cilindros biturbo, que desenvolve 750 cv e 101,9 kgfm de torque.</p>
                 <p class="text-justify">Segundo a W Motors, o modelo atinge até 395 km/h e acelera de 0 a 100km/h em apenas 2,8 segundos, fazendo do Hypersport Responder 
                     a ambulância mais rápida do mundo, de acordo com a Dubai Corporation for Ambulance Services.</p>
-                <img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/hypersport_responder.jpg')}}" alt="HyperSport Responder" />
+                <p><img class="img-fluid w-100" src="{{asset('clean-blog/assets/img/hypersport_responder.jpg')}}" alt="HyperSport Responder" /></p>
                 <p class="text-justify">O Lykan chegou a ser o carro mais caro do mundo na época de seu lançamento, quando custava cerca de U$ 3,4 milhões (ou aproximadamente 
                     R$ 7 milhões na cotação da época). O modelo se destaca pelo seu luxo extremo, tendo diamantes nos faróis de LED, acabamento interno em ouro e titânio, e 
                     um painel de instrumentos que cria hologramas em 3D.</p>
