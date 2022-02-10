@@ -10,7 +10,7 @@
                 <div class="card-body">
 
 
-                    @if ($data->id == "")
+                    @if (!$data->exists)
                         <form id="main" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
                     @else
                         <form id="main" method="POST" action="{{ route('post.update',$data) }}" enctype="multipart/form-data">
@@ -18,6 +18,20 @@
                     @endif
 
                         @csrf
+
+                        @if ($data->exists)            
+                        <div class="row mb-3">
+                            <label for="subject" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Owner') }}</label>
+                            
+                                <div class="col-md-6">
+                                    <input  class="form-control"
+                                    name="subject" value="{{ $data->user->name }}"
+                                    disabled>
+                                </div>
+                        </div>
+                        @endif
+
                         
                         
                         <div class="row mb-3">
@@ -58,6 +72,49 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Category') }}
+                            </label>
+    
+                            <div class="col-md-6">
+                            <select class="form-select @error('category_id') is-invalid @enderror"
+                                    id="category_id"
+                                    name="category_id" >
+                                    <option value=''>{{__("Select one option")}}</option>
+                                @foreach($categoriesList as $cat)
+                                
+                                    <option value='{{$cat->id}}'
+                                        @if (old('category_id',$data->category_id) == $cat->id)
+                                            selected
+                                        @endif
+                                        >{{$cat->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+
+
+
+                            @if($data->exists)
+                                <ol>
+                                @foreach ($categories as $cat)
+                                    <li>
+                                        <a href='{{route('category.edit',$cat)}}'>{{ $cat->name }}</a>
+                                        <a href="{{route('category.desvincular',$cat->category_posts_id)}}">X</a>
+                                    </li>
+                                @endforeach
+                                </ol>
+                                {{ $categories->links() }}
+                            @endif
+
                         </div>
 
 
@@ -120,28 +177,31 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary" form="main">
-                                    {{ __('Save') }}
-                                </button>
+                                @can('update',$data)
+                                    <button type="submit" id="btn-save" class="btn btn-primary" form="main">
+                                        {{ __('Save') }}
+                                    </button>
+                                @endcan
 
+                                @can('create','App\\Models\Post')
                                 <a class='btn btn-secondary' href="{{route('post.create')}}">
                                     {{__('New post')}}
                                 </a>
+                                @endcan
 
 
                                                                 
-                                @if ($data->id != "")
+                                @can ('delete',$data)
                                 <form name='delete' action="{{route('post.destroy',$data)}}"
                                     method="post"
-                                    style='display: inline-block;'
-                                    >
+                                    style='display: inline-block;'>
                                     @csrf
                                     @method("DELETE")
                                     <button type="button" onclick="confirmDeleteModal(this)" class="btn btn-danger">
                                         {{ __('Delete') }}
                                     </button>
                                 </form>
-                                @endif
+                                @endcan
 
                                 
                             </div>
