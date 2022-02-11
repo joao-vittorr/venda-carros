@@ -4,14 +4,14 @@
 @section('content')
 
         <!-- Conteúdo do site-->
-        <header class="masthead --bs-initial" style="background-image: url({{ asset('clean-blog/assets/img/capa_inicial.png')}}); max-width: 100%;
-        height: auto; background-size: cover">
+        <header class="masthead" style="background-image: url({{ asset('clean-blog/assets/img/banner-site.jpg')}}); max-width: 100%;
+        height: auto">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Site de Vendas de Veículos - O melhor de todos</h1>
+                            <h1 class="mb-5">Vorox Motors - Anuncie já</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
