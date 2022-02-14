@@ -4,7 +4,7 @@
 @section('content')
 
         <!-- Conteúdo do site-->
-        <header class="masthead" style="background-image: url({{ asset('clean-blog/assets/img/banner-site.jpg')}}); max-width: 100%;
+        <header class="masthead" style="background-image: url({{ asset('clean-blog/assets/img/banner-site1.jpg')}}); max-width: 100%;
         height: auto">
             <div class="container position-relative">
                 <div class="row justify-content-center">
