@@ -1,55 +1,319 @@
-
-@extends('layouts.template')
+@extends('layouts.app')
 
 @section('content')
-<!-- Page Header-->
-<header class="masthead" style="background-image: url('{{asset('clean-blog/assets/img/post-bg.jpg')}}')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="post-heading">
-                    <h1>Man must explore, and this is exploration at its greatest</h1>
-                    <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                    <span class="meta">
-                        Posted by
-                        <a href="#!">Start Bootstrap</a>
-                        on August 24, 2021
-                    </span>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Announcement') }}</div>
+
+                <div class="card-body">
+
+
+                    @if (!$data->exists)
+                        <form id="main" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+                    @else
+                        <form id="main" method="POST" action="{{ route('post.update',$data) }}" enctype="multipart/form-data">
+                        @method('PUT')
+                    @endif
+
+                        @csrf
+
+                        @if ($data->exists)            
+                        <div class="row mb-3">
+                            <label for="subject" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Owner') }}</label>
+                            
+                                <div class="col-md-6">
+                                    <input  class="form-control"
+                                    name="subject" value="{{ $data->user->name }}"
+                                    disabled>
+                                </div>
+                        </div>
+                        @endif
+
+                        
+                        
+                        <div class="row mb-3">
+                            <label for="subject" class="col-md-4 col-form-label text-md-end">
+                                {{ __('asasasTitle') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" 
+                                    class="form-control @error('title') is-invalid @enderror" 
+                                    name="subject" value="{{ old('title', $data->subject) }}"  
+                                    autofocus>
+
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Type') }}
+                            </label>
+    
+                            <div class="col-md-6">
+                            <select class="form-select @error('category_id') is-invalid @enderror"
+                                    id="category_id"
+                                    name="category_id" >
+                                    <option value=''>{{__("Select one option")}}</option>
+                                @foreach($categoriesList as $cat)
+                                
+                                    <option value='{{$cat->id}}'
+                                        @if (old('category_id',$data->category_id) == $cat->id)
+                                            selected
+                                        @endif
+                                        >{{$cat->name}}</option>
+                                @endforeach
+                            </select>
+
+                            @if($data->exists)
+                                @foreach ($categories as $cat)
+                                <div class="btn-group" role="group">
+                                    <a href='{{route('category.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
+                                    <a href="{{route('category.desvincular',$cat->category_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
+                                </div>
+                                @endforeach
+                            @endif
+
+                            @error('category_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Brand') }}
+                            </label>
+    
+                            <div class="col-md-6">
+                            <select class="form-select @error('brand_id') is-invalid @enderror"
+                                    id="brand_id"
+                                    name="brand_id" >
+                                    <option value=''>{{__("Select one option")}}</option>
+                                @foreach($categoriesList as $cat)
+                                
+                                    <option value='{{$cat->id}}'
+                                        @if (old('brand_id',$data->brand_id) == $cat->id)
+                                            selected
+                                        @endif
+                                        >{{$cat->name}}</option>
+                                @endforeach
+                            </select>
+
+                            {{--@if($data->exists)
+                                @foreach ($categories as $cat)
+                                <div class="btn-group" role="group">
+                                    <a href='{{route('brand.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
+                                    <a href="{{route('brand.desvincular',$cat->brand_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
+                                </div>
+                                @endforeach
+                            @endif
+                            
+                            @error('brand_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+                            --}}
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="subject" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Model') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="model" type="text" 
+                                    class="form-control @error('model') is-invalid @enderror" 
+                                    name="subject" value="{{ old('model', $data->subject) }}"  
+                                    autofocus>
+
+                                @error('model')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="color" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Color') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="color" type="text" 
+                                    class="form-control @error('color') is-invalid @enderror" 
+                                    name="color" value="{{ old('color', $data->color) }}"  
+                                    autofocus>
+
+                                @error('color')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        
+                        <div class="row mb-3">
+                            <label for="color" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Multimidia') }}
+                            </label>
+
+                        <ul class="list-group list-group-horizontal" style="justify-content: center">
+                            <li class="list-group-item">    
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">SOM</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">CENTRAL</label>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">TELA PARA PASSAGEIROS</label>
+                                </div>
+                            </li>
+                        </ul>
+                       
+                            @error('color')
+                              <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                              </span>
+                             @enderror
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="publish_date" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Publish date') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="publish_date" type="date" 
+                                    class="form-control @error('publish_date') is-invalid @enderror" 
+                                    name="publish_date" value="{{ old('publish_date',$data->publish_date == "" ? "" : $data->publish_date->format('Y-m-d')) }}"  >
+
+                                @error('publish_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label for="image" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Image') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="image" type="file" 
+                                    class="form-control @error('image') is-invalid @enderror" 
+                                    name="image" value="{{ old('image', $data->image) }}"  >
+
+
+                                @if ($data->id)
+                                    <img src="{{asset($data->image)}}" class="rounded" width='200'/>
+                                @endif
+                                
+
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="slug" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Slug') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="slug" type="text" 
+                                    class="form-control" 
+                                    value="{{ old('slug', $data->slug) }}" 
+                                    disabled>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="text" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Text') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <textarea id="text" type="text" 
+                                    class="form-control @error('text') is-invalid @enderror" 
+                                    name="text" >{{ old('text', $data->text) }}</textarea>
+
+                                @error('text')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </form>
+
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                @can('update',$data)
+                                    <button type="submit" id="btn-save" class="btn btn-primary" form="main">
+                                        {{ __('Save') }}
+                                    </button>
+                                @endcan
+
+                                @can('create','App\\Models\Post')
+                                <a class='btn btn-secondary' href="{{route('post.create')}}">
+                                    {{__('New post')}}
+                                </a>
+                                @endcan
+
+
+                                                                
+                                @can ('delete',$data)
+                                <form name='delete' action="{{route('post.destroy',$data)}}"
+                                    method="post"
+                                    style='display: inline-block;'>
+                                    @csrf
+                                    @method("DELETE")
+                                    <button type="button" onclick="confirmDeleteModal(this)" class="btn btn-danger">
+                                        {{ __('Delete') }}
+                                    </button>
+                                </form>
+                                @endcan
+
+                                
+                            </div>
+                        </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-</header>
-<!-- Post Content-->
-<article class="mb-4">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
-                <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
-                <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
-                <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
-                <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
-                <h2 class="section-heading">The Final Frontier</h2>
-                <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-                <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-                <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-                <h2 class="section-heading">Reaching for the Stars</h2>
-                <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-                <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>
-                <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-                <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-                <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-                <p>
-                    Placeholder text by
-                    <a href="http://spaceipsum.com/">Space Ipsum</a>
-                    &middot; Images by
-                    <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</article>
-<!-- Footer-->
+</div>
 @endsection

@@ -11,7 +11,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Vorox Motors - Anuncie já</h1>
+                            <h1 class="mb-5">VOROX MOTORS - ANUNCIE JÁ!</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->

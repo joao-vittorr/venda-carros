@@ -26,8 +26,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Vorox Motors
+                <a class="navbar-brand" href="{{ route("home") }}">
+                    VOROX MOTORS
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -56,13 +56,13 @@
                             @endif
                         @else
                             
-                            @can('viewAny', App\Models\Post::class)
+                            @can('viewAny', App\Models\Advert::class)
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('post.list') }}">{{ __('Posts') }}</a>
+                                <a class="nav-link" href="{{ route('advert.list') }}">{{ __('Advertisement') }}</a>
                             </li>
                             @endcan
 
-                            @can('admin-access')
+                            {{--@can('admin-access')--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('category.list') }}">{{ __('Category') }}</a>
                             </li>
@@ -71,7 +71,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('user.list') }}">{{ __('Users') }}</a>
                             </li>
-                            @endcan
+                            {{--@endcan--}}
                                 
 
                             <li class="nav-item dropdown">

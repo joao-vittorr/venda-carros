@@ -42,7 +42,7 @@
 
 
                     
-                    <div class="row mb-3">
+                   {{-- <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">
                             {{ __('Post') }}
                         </label>
@@ -68,7 +68,7 @@
                         @enderror
                         </div>
                     </div>
-
+                    --}}
                     
                     </form>
 

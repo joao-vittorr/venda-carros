@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Post;
+use App\Models\Advert;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PostPolicy
+class AdvertPolicy
 {
     use HandlesAuthorization;
 
@@ -16,7 +16,7 @@ class PostPolicy
         return true;
     }
 
-    public function view(User $user, Post $post)
+    public function view(User $user, Advert $post)
     {
         return true;
     }
@@ -28,7 +28,7 @@ class PostPolicy
     }
 
     
-    public function update(User $user, Post $post)
+    public function update(User $user, Advert $post)
     {
         if (!$post->exists){
             return $user->level >= User::AUTHOR_LEVEL;
@@ -39,7 +39,7 @@ class PostPolicy
     }
 
     
-    public function delete(User $user, Post $post)
+    public function delete(User $user, Advert $post)
     {
         return $user->level == User::AUTHOR_LEVEL && $user->id == $post->user_id
             || $user->level == User::ADMIN_LEVEL && $post->exists;

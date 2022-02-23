@@ -5,15 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Announcement') }}</div>
+                <div class="card-header">{{ __('Advertisement') }}</div>
 
                 <div class="card-body">
 
 
                     @if (!$data->exists)
-                        <form id="main" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
                     @else
-                        <form id="main" method="POST" action="{{ route('post.update',$data) }}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{ route('advert.update',$data) }}" enctype="multipart/form-data">
                         @method('PUT')
                     @endif
 
@@ -31,18 +31,18 @@
                                 </div>
                         </div>
                         @endif
-                    
+
                         
                         
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
-                                {{ __('asasasTitle') }}
+                                {{ __('Title') }}
                             </label>
 
                             <div class="col-md-6">
                                 <input id="title" type="text" 
                                     class="form-control @error('title') is-invalid @enderror" 
-                                    name="subject" value="{{ old('title', $data->subject) }}"  
+                                    name="title" value="{{ old('title', $data->title) }}"  
                                     autofocus>
 
                                 @error('title')
@@ -111,7 +111,7 @@
                                 @endforeach
                             </select>
 
-                            {{--@if($data->exists)
+                            @if($data->exists)
                                 @foreach ($categories as $cat)
                                 <div class="btn-group" role="group">
                                     <a href='{{route('brand.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
@@ -126,19 +126,19 @@
                                 </span>
                             @enderror
                             </div>
-                            --}}
+                            
 
                         </div>
 
                         <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">
+                            <label for="model" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Model') }}
                             </label>
 
                             <div class="col-md-6">
                                 <input id="model" type="text" 
                                     class="form-control @error('model') is-invalid @enderror" 
-                                    name="subject" value="{{ old('model', $data->subject) }}"  
+                                    name="model" value="{{ old('model', $data->model) }}"  
                                     autofocus>
 
                                 @error('model')
@@ -170,50 +170,77 @@
 
                         
                         <div class="row mb-3">
-                            <label for="color" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Multimidia') }}
+                            <label for="mult" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Multimedia') }}
                             </label>
-
-                        <ul class="list-group list-group-horizontal list-group-border-color: red" style="justify-content: center">
-                            <li class="list-group-item">    
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">SOM</label>
+                        <div class="col-md-6">
+                        <ul class="list-group list-group-horizontal" style="justify-content: center">
+                            <li class="list-group">    
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    SOM</label>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">CENTRAL</label>
+                            <li class="list-group">
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault2">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2">
+                                    CENTRAL</label>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">TELA PARA PASSAGEIROS</label>
+                            <li class="list-group">
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault3">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault3">
+                                    TELA PARA PASSAGEIROS</label>
                                 </div>
                             </li>
                         </ul>
                        
-                            @error('color')
-                              <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                              </span>
-                             @enderror
-
+                                @error('mult')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="publish_date" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Publish date') }}
+                            <label for="manuf_year" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Year of Manufacture') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="publish_date" type="date" 
-                                    class="form-control @error('publish_date') is-invalid @enderror" 
-                                    name="publish_date" value="{{ old('publish_date',$data->publish_date == "" ? "" : $data->publish_date->format('Y-m-d')) }}"  >
+                                <select class="form-select @error('manuf_year') is-invalid @enderror"
+                                id="manuf_year"
+                                name="manuf_year">
+                                    <option selected>Open this select menu</option>
+                                    @for ($i = 1950; $i <= date("Y"); $i++)
+                                         <option value={{$i}}>{{$i}}</option>
+                                    @endfor
+                                </select>
 
-                                @error('publish_date')
+                                @error('manuf_year')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="mileage" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Mileage') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="mileage" type="text" 
+                                    class="form-control @error('mileage') is-invalid @enderror" 
+                                    name="mileage" value="{{ old('mileage', $data->mileage) }}"  
+                                    autofocus>
+
+                                @error('mileage')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -223,53 +250,59 @@
 
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Image') }}
+                            <label for="price" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Price') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" 
-                                    class="form-control @error('image') is-invalid @enderror" 
-                                    name="image" value="{{ old('image', $data->image) }}"  >
+                                <input id="price" type="text" 
+                                    class="form-control @error('price') is-invalid @enderror" 
+                                    name="price" value="{{ old('price', $data->price) }}"  
+                                    autofocus>
+
+                                @error('price')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="photo" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Photo') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="photo" type="file" 
+                                    class="form-control @error('photo') is-invalid @enderror" 
+                                    name="photo" value="{{ old('photo', $data->photo) }}"  >
 
 
                                 @if ($data->id)
-                                    <img src="{{asset($data->image)}}" class="rounded" width='200'/>
+                                    <img src="{{asset($data->photo)}}" class="rounded" width='200'/>
                                 @endif
                                 
 
-                                @error('image')
+                                @error('photo')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="slug" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Slug') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="slug" type="text" 
-                                    class="form-control" 
-                                    value="{{ old('slug', $data->slug) }}" 
-                                    disabled>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="text" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Text') }}
+                                {{ __('Description') }}
                             </label>
 
                             <div class="col-md-6">
-                                <textarea id="text" type="text" 
-                                    class="form-control @error('text') is-invalid @enderror" 
-                                    name="text" >{{ old('text', $data->text) }}</textarea>
+                                <textarea id="description" type="text" 
+                                    class="form-control @error('description') is-invalid @enderror" 
+                                    name="description" >{{ old('description', $data->description) }}</textarea>
 
-                                @error('text')
+                                @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -281,22 +314,22 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                @can('update',$data)
+                                {{--@can('update',$data)--}}
                                     <button type="submit" id="btn-save" class="btn btn-primary" form="main">
-                                        {{ __('Save') }}
+                                        {{ __('Publish') }}
                                     </button>
-                                @endcan
+                                {{--@endcan--}}
 
-                                @can('create','App\\Models\Post')
-                                <a class='btn btn-secondary' href="{{route('post.create')}}">
-                                    {{__('New post')}}
+                                {{--@can('create','App\\Models\Advert')--}}
+                                <a class='btn btn-secondary' href="{{route('advert.create')}}">
+                                    {{__('New Advertisement')}}
                                 </a>
-                                @endcan
+                                {{--@endcan--}}
 
 
                                                                 
                                 @can ('delete',$data)
-                                <form name='delete' action="{{route('post.destroy',$data)}}"
+                                <form name='delete' action="{{route('advert.destroy',$data)}}"
                                     method="post"
                                     style='display: inline-block;'>
                                     @csrf
