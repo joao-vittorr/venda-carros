@@ -64,6 +64,7 @@ class AdvertController extends Controller
     }
 
     public function store(AdvertRequest $request){
+        dd($request);
         //Gate::authorize('create', Advert::class);
         $validated = $request->validated();
 

@@ -9,7 +9,17 @@
 
                 <div class="card-body">
 
-
+                    <h1>Create Post</h1>
+ 
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     @if (!$data->exists)
                         <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
                     @else
@@ -60,13 +70,13 @@
     
                             <div class="col-md-6">
                             <select class="form-select @error('category_id') is-invalid @enderror"
-                                    id="category_id"
-                                    name="category_id" >
+                                    id="type"
+                                    name="type" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
                                     <option value='{{$cat->id}}'
-                                        @if (old('category_id',$data->category_id) == $cat->id)
+                                        @if (old('type',$data->category_id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
@@ -82,7 +92,7 @@
                                 @endforeach
                             @endif
 
-                            @error('category_id')
+                            @error('type')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -98,13 +108,13 @@
     
                             <div class="col-md-6">
                             <select class="form-select @error('brand_id') is-invalid @enderror"
-                                    id="brand_id"
-                                    name="brand_id" >
+                                    id="brand"
+                                    name="brand" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
                                     <option value='{{$cat->id}}'
-                                        @if (old('brand_id',$data->brand_id) == $cat->id)
+                                        @if (old('brand',$data->brand_id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
@@ -120,7 +130,7 @@
                                 @endforeach
                             @endif
                             
-                            @error('brand_id')
+                            @error('brand')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -178,21 +188,28 @@
                             <li class="list-group">    
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <input type="hidden" name="mult[1]" value="0">
+                                        <input class="form-check-input" name="mult[1]" value="som" type="checkbox" id="flexSwitchCheckDefault">
                                     SOM</label>
                                 </div>
                             </li>
+                        </ul>
+                        <ul class="list-group list-group-horizontal" style="justify-content: center"
                             <li class="list-group">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault2">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2">
+                                        <input type="hidden" name="mult[1]" value="0">
+                                    <input class="form-check-input" name="mult[2]" value="central" type="checkbox" id="flexSwitchCheckDefault2">
                                     CENTRAL</label>
                                 </div>
                             </li>
+                        </ul>
+                        <ul class="list-group list-group-horizontal" style="justify-content: center">
                             <li class="list-group">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault3">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault3">
+                                        <input type="hidden" name="mult[1]" value="0">
+                                    <input class="form-check-input" name="mult[3]" value="TELA" type="checkbox" id="flexSwitchCheckDefault3">
                                     TELA PARA PASSAGEIROS</label>
                                 </div>
                             </li>
