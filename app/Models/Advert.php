@@ -22,7 +22,8 @@ protected $fillable = [
     "mileage",
     "price",
     "photo",
-    "description"
+    "description",
+    "user_id"
 ];
 
 

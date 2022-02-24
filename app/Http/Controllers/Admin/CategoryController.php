@@ -35,7 +35,7 @@ class CategoryController extends Controller
     public function validator(array $data){
         $rules = [
             'name' => 'required|max:500',
-            'post_id' => 'exclude_if:post_id,null|exists:posts,id',
+            //'post_id' => 'exclude_if:post_id,null|exists:posts,id',
         ];
 
         return Validator::make($data, $rules)->validate();
@@ -49,7 +49,7 @@ class CategoryController extends Controller
         
         #vinculação com post
         $post = Post::find($request["post_id"]);
-        CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
+        //CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
     
 
         return redirect(route("category.edit", $cat))->with("success",__("Data saved!"));

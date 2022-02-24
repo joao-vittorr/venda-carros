@@ -20,6 +20,8 @@
                             </ul>
                         </div>
                     @endif
+
+
                     @if (!$data->exists)
                         <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
                     @else
@@ -188,32 +190,19 @@
                             <li class="list-group">    
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault">
-                                        <input type="hidden" name="mult[1]" value="0">
-                                        <input class="form-check-input" name="mult[1]" value="som" type="checkbox" id="flexSwitchCheckDefault">
-                                    SOM</label>
+                                        <input class="form-check-input" name="mult" value="1" type="radio" id="flexSwitchCheckDefault">
+                                    SIM</label>
                                 </div>
                             </li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal" style="justify-content: center"
                             <li class="list-group">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault2">
-                                        <input type="hidden" name="mult[1]" value="0">
-                                    <input class="form-check-input" name="mult[2]" value="central" type="checkbox" id="flexSwitchCheckDefault2">
-                                    CENTRAL</label>
+                                    <input class="form-check-input" name="mult" value="0" type="radio" id="flexSwitchCheckDefault" checked>
+                                    NÃO</label>
                                 </div>
                             </li>
                         </ul>
-                        <ul class="list-group list-group-horizontal" style="justify-content: center">
-                            <li class="list-group">
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault3">
-                                        <input type="hidden" name="mult[1]" value="0">
-                                    <input class="form-check-input" name="mult[3]" value="TELA" type="checkbox" id="flexSwitchCheckDefault3">
-                                    TELA PARA PASSAGEIROS</label>
-                                </div>
-                            </li>
-                        </ul>
+
                        
                                 @error('mult')
                                 <span class="invalid-feedback" role="alert">

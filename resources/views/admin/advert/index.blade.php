@@ -92,7 +92,7 @@
                                     @endcan
                                     <td>{{$item->subject}}</td>    
                                     <td>{{$item->slug}}</td>    
-                                    <td>{{$item->user->name}}</td>  
+                                    {{--<td>{{$item->user->name}}</td>  --}}
                                     @can('delete',$item)  
                                     <td>
                                         <form action="{{route('advert.destroy',$item)}}" method="post">

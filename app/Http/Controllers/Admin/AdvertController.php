@@ -64,7 +64,7 @@ class AdvertController extends Controller
     }
 
     public function store(AdvertRequest $request){
-        dd($request);
+        
         //Gate::authorize('create', Advert::class);
         $validated = $request->validated();
 
@@ -79,7 +79,7 @@ class AdvertController extends Controller
     
         #vinculação com categoria
         $cat = Category::find($request["category_id"]);
-        CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
+        CategoryPost::updateOrCreate(["advert_id"=>$post->id,"category_id"=>$cat->id]);
     
 
         return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
