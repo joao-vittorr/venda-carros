@@ -8,8 +8,6 @@
                 <div class="card-header">{{ __('Advertisement') }}</div>
 
                 <div class="card-body">
-
-                    <h1>Create Post</h1>
  
                     @if ($errors->any())
                         <div class="alert alert-danger">
