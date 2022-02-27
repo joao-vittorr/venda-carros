@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\CategoryPost;
+use App\Models\Type;
+use App\Models\TypePost;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +45,11 @@ class PostController extends Controller
         $categoriesList = Category::all();
         return view("admin.posts.form", ["data"=>new Post(),
                                         "categoriesList"=>$categoriesList] );
+
+        Gate::authorize('create', Post::class);
+        $typesList = Type::all();
+        return view("admin.posts.form", ["data"=>new Post(),
+                                        "typesList"=>$typesList] );
     }
 
     public function store(PostRequest $request){
@@ -61,6 +68,10 @@ class PostController extends Controller
         #vinculação com categoria
         $cat = Category::find($request["category_id"]);
         CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
+
+        #vinculação com type
+        $typ = Type::find($request["type_id"]);
+        TypePost::updateOrCreate(["post_id"=>$post->id,"type_id"=>$typ->id]);
     
 
         return redirect(route("post.edit", $post))->with("success",__("Data saved!"));
@@ -86,6 +97,19 @@ class PostController extends Controller
         return view("admin.posts.form",["data"=>$post,
                                         "categoriesList"=>$categoriesList,
                                         "categories"=>$categories]);
+
+
+        Gate::authorize('view', $post);
+        $typesList = Type::all();
+
+        $types = Type::select("types.*", "type_posts.id as type_posts_id")
+                        ->join("type_posts","type_posts.type_id","=","types.id")
+                        ->where("post_id",$post->id)->paginate(2);
+
+
+        return view("admin.posts.form",["data"=>$post,
+                                        "typesList"=>$typesList,
+                                        "types"=>$types]);                                        
     }
 
     #salva as edições
@@ -108,7 +132,11 @@ class PostController extends Controller
             $cat = Category::find($request["category_id"]);
             CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
         }
-
+        #vinculação com type
+        if ($request["type_id"]){
+            $cat = Category::find($request["type_id"]);
+            CategoryPost::updateOrCreate(["post_id"=>$post->id,"type_id"=>$cat->id]);
+        }
 
         return redirect()->back()->with("success",__("Data updated!"));
     }

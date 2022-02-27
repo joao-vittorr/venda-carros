@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Admin\PostController;
@@ -53,6 +54,27 @@ Route::middleware(['auth'])->group(function () {
 
 
     
+Route::middleware(['auth'])->group(function () {
+    Route::get('/type/list', [TypeController::class,"list"])->name('type.list');
+    Route::get('/type', [TypeController::class,"create"])->name('type.create');
+    Route::post('/type', [TypeController::class,"store"])->name('type.store');
+    Route::get('/type/{type}', [TypeController::class,"edit"])->name('type.edit');
+    Route::put("/type/{type}", [TypeController::class,"update"])->name('type.update');
+    Route::delete('/type/{type}', [TypeController::class,"destroy"])->name('type.destroy');
+    Route::get('/type/desvincular/{type_post}', [TypeController::class,"desvincular"])->name('type.desvincular');
+
+
+
+    Route::get('/user/list', [UserController::class,"list"])->name('user.list');
+    #Route::get('/user', [PostController::class,"create"])->name('user.create');
+    #Route::post('/user', [PostController::class,"store"])->name('user.store');
+    Route::get('/user/{user}', [UserController::class,"edit"])->name('user.edit');
+    #Route::put("/user/{user}", [PostController::class,"update"])->name('user.update');
+    #Route::delete('/user/{user}', [PostController::class,"destroy"])->name('user.destroy');
+
+});
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/category/list', [CategoryController::class,"list"])->name('category.list');
     Route::get('/category', [CategoryController::class,"create"])->name('category.create');

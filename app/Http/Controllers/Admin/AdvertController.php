@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AdvertRequest;
 use App\Models\Category;
 use App\Models\CategoryPost;
+use App\Models\Type;
+use App\Models\TypePost;
 use App\Models\Advert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,6 +63,10 @@ class AdvertController extends Controller
         $categoriesList = Category::all();
         return view("admin.advert.form", ["data"=>new Advert(),
                                         "categoriesList"=>$categoriesList] );
+
+        $typesList = Type::all();
+        return view("admin.advert.form", ["data"=>new Advert(),
+                                        "typesList"=>$typesList] );
     }
 
     public function store(AdvertRequest $request){
@@ -81,6 +87,9 @@ class AdvertController extends Controller
         $cat = Category::find($request["category_id"]);
         CategoryPost::updateOrCreate(["advert_id"=>$post->id,"category_id"=>$cat->id]);
     
+        #vinculação com type
+        $typ = Type::find($request["type_id"]);
+        TypePost::updateOrCreate(["advert_id"=>$post->id,"type_id"=>$cat->id]);
 
         return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
     }
@@ -105,6 +114,19 @@ class AdvertController extends Controller
         return view("admin.advert.form",["data"=>$post,
                                         "categoriesList"=>$categoriesList,
                                         "categories"=>$categories]);
+
+
+
+        $typesList = Type::all();
+
+        $types = Type::select("types.*", "type_posts.id as type_posts_id")
+                        ->join("type_posts","type_posts.type_id","=","types.id")
+                        ->where("post_id",$post->id)->paginate(2);
+
+
+        return view("admin.advert.form",["data"=>$post,
+                                        "typesList"=>$typesList,
+                                        "types"=>$types]);
     }
 
     #salva as edições
