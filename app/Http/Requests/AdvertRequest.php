@@ -35,6 +35,7 @@ class AdvertRequest extends FormRequest
             "mileage"=> 'required|max:200',
             "price" => 'required|max:50',
             "description" => 'required|max:500',
+            'category_id' => 'exclude_if:category_id,null|exists:categories,id',
         ];
 
         if ($this->method() == "POST"){

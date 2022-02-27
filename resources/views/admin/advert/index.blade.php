@@ -22,19 +22,19 @@
 
 
                         <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">{{ __('Subject') }}</label>
+                            <label for="brand" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
                             <div class="col-md-6">
-                                <input id="subject" type="text" class="form-control" 
-                                         name="subject" value="{{ old('subject') }}" 
+                                <input id="brand" type="text" class="form-control" 
+                                         name="brand" value="{{ old('Name') }}" 
                                          autofocus>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Text') }}</label>
+                            <label for="brand" class="col-md-4 col-form-label text-md-end">{{ __('Brand') }}</label>
                             <div class="col-md-6">
-                                <input id="text" type="text" class="form-control" 
-                                         name="text" value="{{ old('text') }}" 
+                                <input id="brand" type="text" class="form-control" 
+                                         name="brand" value="{{ old('brand') }}" 
                                          autofocus>
                             </div>
                         </div>
@@ -72,9 +72,9 @@
                             @can('viewAny','App\Models\Advert')  
                                 <th scope="col">{{__("Edit")}}</th>
                             @endcan
-                            <th scope="col">{{__("Subject")}}</th>
-                            <th scope="col">{{__("Slug")}}</th>
-                            <th scope="col">{{__("Owner")}}</th>
+                            <th scope="col">{{__("Name")}}</th>
+                            <th scope="col">{{__("Brand")}}</th>
+                            <th scope="col">{{__("Ad Date")}}</th>
                             @can('deleteAny','App\Models\Advert')  
                                 <th scope="col">{{__("Delete")}}</th>
                             @endcan
@@ -90,8 +90,9 @@
                                         </a>
                                     </td>
                                     @endcan
-                                    <td>{{$item->subject}}</td>    
-                                    <td>{{$item->slug}}</td>    
+                                    <td>{{$item->type}}</td>    
+                                    <td>{{$item->brand}}</td>
+                                    <td>{{$item->created_at}}</td>     
                                     {{--<td>{{$item->user->name}}</td>  --}}
                                     @can('delete',$item)  
                                     <td>
