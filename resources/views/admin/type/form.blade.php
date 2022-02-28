@@ -39,36 +39,6 @@
                                 @enderror
                             </div>
                         </div>
-
-
-                    
-                   {{-- <div class="row mb-3">
-                        <label for="name" class="col-md-4 col-form-label text-md-end">
-                            {{ __('Post') }}
-                        </label>
-
-                            <div class="col-md-6">
-                        <select class="form-select @error('post_id') is-invalid @enderror"
-                                id="post_id"
-                                name="post_id" >
-                                <option value=''>{{__("Select one option")}}</option>
-                            @foreach($postsList as $post)
-                            
-                                <option value='{{$post->id}}'
-                                    @if (old('post_id',$data->post_id) == $post->id)
-                                        selected
-                                    @endif
-                                    >{{$post->subject}}</option>
-                            @endforeach
-                        </select>
-                        @error('post_id')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        </div>
-                    </div>
-                    --}}
                     
                     </form>
 
