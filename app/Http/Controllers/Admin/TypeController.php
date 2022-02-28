@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TypeRequest;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Type;
 use App\Models\TypePost;
 use App\Models\Post;
@@ -27,18 +27,8 @@ class TypeController extends Controller
     }
 
     public function create(){
-        $postsList = Post::all();
-        return view("admin.type.form", ["data"=>new Type(),
-                                            "postsList"=>$postsList] );
-    }
-
-    public function validator(array $data){
-        $rules = [
-            'name' => 'required|max:500',
-            //'post_id' => 'exclude_if:post_id,null|exists:posts,id',
-        ];
-
-        return Validator::make($data, $rules)->validate();
+        //$postsList = Post::all();
+        return view("admin.type.form", ["data"=>new Type()] );
     }
 
     public function store(Request $request){
@@ -48,11 +38,11 @@ class TypeController extends Controller
 
         
         #vinculação com post
-        $post = Post::find($request["post_id"]);
-        //TypePost::updateOrCreate(["post_id"=>$post->id,"type_id"=>$cat->id]);
+        //$post = Post::find($request["post_id"]);
+        //CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
     
 
-        return redirect(route("type.edit", $cat))->with("success",__("Data saved!"));
+        return redirect(route("type.edit", $typ))->with("success",__("Data saved!"));
     }
 
     public function destroy(Type $type){
@@ -68,17 +58,14 @@ class TypeController extends Controller
 
     #abre o formulario de edição
     public function edit(Type $type){
-        $postsList = Post::all();
+        //$postsList = Post::all();
 
-        $posts = Post::select("posts.*", "type_posts.id as type_posts_id")
-                ->join("type_posts","type_posts.post_id","=","posts.id")
-                ->where("type_id",$type->id)->paginate(2);
+        //$posts = Post::select("posts.*", "category_posts.id as category_posts_id")
+                //->join("category_posts","category_posts.post_id","=","posts.id")
+                //->where("category_id",$category->id)->paginate(2);
     
         
-        return view("admin.type.form",["data"=>$type,
-                                           "postsList"=>$postsList,
-                                           "posts"=>$posts
-                                         ]);
+        return view("admin.type.form",["data"=>$type]);
     }
 
     #salva as edições
@@ -87,11 +74,11 @@ class TypeController extends Controller
         $type->update($validated);
 
 
-        $post = Post::find($request["post_id"]);
+        //$post = Post::find($request["post_id"]);
         #na documentação consta esse método
         #funciona, mas não insere os timestamps
-        #$type->posts()->attach($post);
-        TypePost::updateOrCreate(["post_id"=>$post->id,"type_id"=>$type->id]);
+        #$category->posts()->attach($post);
+        TypePost::updated(["name"=>$type->name]);
     
 
         return redirect()->back()->with("success",__("Data updated!"));

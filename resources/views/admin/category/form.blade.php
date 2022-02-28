@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Category') }}</div>
+                <div class="card-header">{{ __('Brand') }}</div>
 
                 <div class="card-body">
 
@@ -72,17 +72,17 @@
                     
                     </form>
 
-                    @if($data->exists)
+                    {{--@if($data->exists)
                         <ol>
                         @foreach ($posts as $post)
                         <li>
-                            <a href='{{route('post.edit',$post)}}'>{{ $post->subject }}</a>
+                            <a href='{{route('post.edit',$post)}}'>{{ $post->name }}</a>
                             <a href="{{route('category.desvincular',$post->category_posts_id)}}">X</a>
                         </li>
                         @endforeach
                         </ol>
                         {{ $posts->links() }}
-                    @endif
+                    @endif--}}
 
 
                         <div class="row mb-0">

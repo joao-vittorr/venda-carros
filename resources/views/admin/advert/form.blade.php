@@ -29,21 +29,7 @@
 
                         @csrf
 
-                        @if ($data->exists)            
-                        <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Owner') }}</label>
-                            
-                                <div class="col-md-6">
-                                    <input  class="form-control"
-                                    name="subject" value="{{ $data->user->name }}"
-                                    disabled>
-                                </div>
-                        </div>
-                        @endif
-
-                        
-                        
+                      
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Title') }}
@@ -69,25 +55,25 @@
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('category_id') is-invalid @enderror"
+                            <select class="form-select @error('type') is-invalid @enderror"
                                     id="type"
                                     name="type" >
                                     <option value=''>{{__("Select one option")}}</option>
-                                @foreach($categoriesList as $cat)
-                                
-                                    <option value='{{$cat->id}}'
-                                        @if (old('type',$data->category_id) == $cat->id)
+
+                                @foreach($typesList as $typ)        
+                                    <option value='{{$typ->name}}'
+                                        @if (old('brand',$data->typ_id) == $typ->id)
                                             selected
                                         @endif
-                                        >{{$cat->name}}</option>
+                                        >{{$typ->name}}</option>
                                 @endforeach
                             </select>
 
                             @if($data->exists)
-                                @foreach ($categories as $cat)
+                                @foreach ($types as $typ)
                                 <div class="btn-group" role="group">
-                                    <a href='{{route('category.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
-                                    <a href="{{route('category.desvincular',$cat->category_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
+                                    <a href='{{route('type.edit',$typ)}}'><button type="button" class="btn btn-secondary" disabled>{{ $typ->name }}</button></a>
+                                    <a href="{{route('type.desvincular',$typ->type_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
                                 </div>
                                 @endforeach
                             @endif
@@ -107,14 +93,14 @@
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('brand_id') is-invalid @enderror"
+                            <select class="form-select @error('brand') is-invalid @enderror"
                                     id="brand"
                                     name="brand" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
-                                    <option value='{{$cat->id}}'
-                                        @if (old('brand',$data->brand_id) == $cat->id)
+                                    <option value='{{$cat->name}}'
+                                        @if (old('brand',$data->cat_id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
@@ -188,14 +174,17 @@
                             <li class="list-group">    
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault">
-                                        <input class="form-check-input" name="mult" value="1" type="radio" id="flexSwitchCheckDefault">
+                                        <input class="form-check-input" name="mult" value="sim" type="radio" id="flexSwitchCheckDefault" 
+                                        @if (old('brand',$data->mult) == true)
+                                            checked
+                                        @endif>
                                     SIM</label>
                                 </div>
                             </li>
                             <li class="list-group">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault2">
-                                    <input class="form-check-input" name="mult" value="0" type="radio" id="flexSwitchCheckDefault" checked>
+                                    <input class="form-check-input" name="mult" value="nao" type="radio" id="flexSwitchCheckDefault" checked>
                                     NÃO</label>
                                 </div>
                             </li>
@@ -219,9 +208,12 @@
                                 <select class="form-select @error('manuf_year') is-invalid @enderror"
                                 id="manuf_year"
                                 name="manuf_year">
-                                    <option selected>Open this select menu</option>
+                                    <option selected value="">Open this select menu</option>
                                     @for ($i = 1950; $i <= date("Y"); $i++)
-                                         <option value={{$i}}>{{$i}}</option>
+                                         <option value={{$i}}  
+                                        @if (old('manuf_year',$data->cat_id) == $cat->id)
+                                            selected
+                                        @endif>{{$i}}</option>
                                     @endfor
                                 </select>
 

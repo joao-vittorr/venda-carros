@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdvertRequest;
 use App\Models\Category;
-use App\Models\CategoryPost;
 use App\Models\Type;
-use App\Models\TypePost;
 use App\Models\Advert;
+use App\Models\Category_ads;
+use App\Models\Type_ads;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Validator;
 
 class AdvertController extends Controller
 {
@@ -22,7 +23,7 @@ class AdvertController extends Controller
         $pagination = Advert::orderBy("title");
 
         if (isset($request->busca) && $request->busca != "") {
-            $pagination->orWhere("subject","like","%$request->busca%");
+            $pagination->orWhere("name","like","%$request->busca%");
             $pagination->orWhere("text","like","%$request->busca%");
         }
 
@@ -82,16 +83,27 @@ class AdvertController extends Controller
 
         $post = Advert::create($data);
 
-    
+        
         #vinculação com categoria
         $cat = Category::find($request["category_id"]);
-        CategoryPost::updateOrCreate(["advert_id"=>$post->id,"category_id"=>$cat->id]);
-    
+        Category_ads::updated(["adverts_id"=>$post->id,"category_id"=>$cat->id]);
+        
         #vinculação com type
         $typ = Type::find($request["type_id"]);
-        TypePost::updateOrCreate(["advert_id"=>$post->id,"type_id"=>$cat->id]);
+        Type_ads::updated(["adverts_id"=>$post->id,"type_id"=>$cat->id]);
+    
 
         return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
+    }
+
+    public function validator(array $data){
+        $rules = [
+            'type' => 'required|max:100',
+            'brand' => 'required|max:100',
+            'manuf_year' => 'required|max:100',
+        ];
+
+        return Validator::make($data, $rules)->validate();
     }
 
     public function destroy(Advert $post){
@@ -106,27 +118,32 @@ class AdvertController extends Controller
         //Gate::authorize('view', $post);
         $categoriesList = Category::all();
 
-        $categories = Category::select("categories.*", "category_posts.id as category_posts_id")
+
+        /*$categories = Category::select("categories.*", "category_posts.id as category_posts_id")
                         ->join("category_posts","category_posts.category_id","=","categories.id")
                         ->where("post_id",$post->id)->paginate(2);
+        
+        $posts = Post::select("posts.*", "category_posts.id as category_posts_id")
+                ->join("category_posts","category_posts.post_id","=","posts.id")
+                ->where("category_id",$category->id)->paginate(2);
+        */
+        $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
+                        ->join("category_ads","category_ads.category_id","=","categories.id")
+                        ->where("advests_id",$post->id)->paginate(2);
 
 
-        return view("admin.advert.form",["data"=>$post,
-                                        "categoriesList"=>$categoriesList,
-                                        "categories"=>$categories]);
-
+        return view("admin.advert.form",["data"=>$post, "categoriesList"=>$categoriesList,
+                                         "categories"=>$categories]);
 
 
         $typesList = Type::all();
+        $types = Type::select("types.*", "type_ads.id as type_ads_id")
+                        ->join("type_ads","type_ads.type_id","=","types.id")
+                        ->where("advests_id",$post->id)->paginate(2);
 
-        $types = Type::select("types.*", "type_posts.id as type_posts_id")
-                        ->join("type_posts","type_posts.type_id","=","types.id")
-                        ->where("post_id",$post->id)->paginate(2);
 
-
-        return view("admin.advert.form",["data"=>$post,
-                                        "typesList"=>$typesList,
-                                        "types"=>$types]);
+        return view("admin.advert.form",["data"=>$post, "typesList"=>$typesList,
+                                         "types"=>$types]);
     }
 
     #salva as edições
@@ -145,10 +162,10 @@ class AdvertController extends Controller
 
 
         #vinculação com categoria
-        if ($request["category_id"]){
+       /* if ($request["category_id"]){
             $cat = Category::find($request["category_id"]);
             CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
-        }
+        }*/
 
 
         return redirect()->back()->with("success",__("Data updated!"));

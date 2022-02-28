@@ -45,8 +45,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put("/post/{post}", [PostController::class,"update"])->name('post.update');
     Route::delete('/post/{post}', [PostController::class,"destroy"])->name('post.destroy');*/
     Route::get('/advert/list', [AdvertController::class,"list"])->name('advert.list');
-    Route::get('/advert2', [AdvertController::class,"create"])->name('advert.create');
-    Route::post('/advert2', [AdvertController::class,"store"])->name('advert.store');
+    Route::get('/ad', [AdvertController::class,"create"])->name('advert.create');
+    Route::post('/ad', [AdvertController::class,"store"])->name('advert.store');
     Route::get('/advert/{advert}', [AdvertController::class,"edit"])->name('advert.edit');
     Route::put("/advert/{advert}", [AdvertController::class,"update"])->name('advert.update');
     Route::delete('/advert/{advert}', [AdvertController::class,"destroy"])->name('advert.destroy');

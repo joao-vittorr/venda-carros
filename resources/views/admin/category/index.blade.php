@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Category') }}</div>
+                <div class="card-header">{{ __('Brand') }}</div>
 
                 <div class="card-body">
                     <form method="GET" action="{{ route('category.list') }}">
@@ -27,7 +27,7 @@
                                 </button>
 
                                 <a class='btn btn-secondary' href="{{route('category.create')}}">
-                                    {{__('New category')}}
+                                    {{__('New Brand')}}
                                 </a>
                                 
                             </div>
@@ -40,7 +40,6 @@
                           <tr>
                             <th scope="col">{{__("Edit")}}</th>
                             <th scope="col">{{__("Name")}}</th>
-                            <th scope="col">{{__("Posts qtd.")}}</th>
                             <th scope="col">{{__("Delete")}}</th>
                           </tr>
                         </thead>
@@ -52,8 +51,7 @@
                                             {{ __('Edit') }}
                                         </a>
                                     </td>
-                                    <td>{{$item->name}}</td>  
-                                    <td>{{ $item->posts->count() }}</td>
+                                    <td>{{$item->name}}</td>
                                     <td>
                                         <form action="{{route('category.destroy',$item)}}" method="POST">
                                             @csrf

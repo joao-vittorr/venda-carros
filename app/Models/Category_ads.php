@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TypePost extends Model {
+class Category_ads extends Model {
     use HasFactory;
 
-    protected $fillable = ['name','type_id'];
+    protected $fillable = ['advert_id','category_id'];
 }
