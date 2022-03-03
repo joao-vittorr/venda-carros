@@ -50,11 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/advert/{advert}', [AdvertController::class,"edit"])->name('advert.edit');
     Route::put("/advert/{advert}", [AdvertController::class,"update"])->name('advert.update');
     Route::delete('/advert/{advert}', [AdvertController::class,"destroy"])->name('advert.destroy');
-});
-
-
     
-Route::middleware(['auth'])->group(function () {
     Route::get('/type/list', [TypeController::class,"list"])->name('type.list');
     Route::get('/type', [TypeController::class,"create"])->name('type.create');
     Route::post('/type', [TypeController::class,"store"])->name('type.store');
@@ -62,6 +58,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put("/type/{type}", [TypeController::class,"update"])->name('type.update');
     Route::delete('/type/{type}', [TypeController::class,"destroy"])->name('type.destroy');
     Route::get('/type/desvincular/{type_post}', [TypeController::class,"desvincular"])->name('type.desvincular');
+});
+
+
+    
+Route::middleware(['auth'])->group(function () {
 
 
 

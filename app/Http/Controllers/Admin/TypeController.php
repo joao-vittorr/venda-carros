@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
+
 use App\Models\Type;
 use App\Models\TypePost;
 use App\Models\Post;
@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Validator;
 
 class TypeController extends Controller
 {
-        
+    
+    public function validator(array $data){
+        $rules = [
+            'name' => 'required|max:500',
+        ];
+
+        return Validator::make($data, $rules)->validate();
+    }
+    
+
     public function list(Request $request){
         $pagination = Type::orderBy("name");
 

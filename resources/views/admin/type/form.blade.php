@@ -20,7 +20,6 @@
                         @csrf
 
                         
-                        
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Name') }}
@@ -41,19 +40,6 @@
                         </div>
                     
                     </form>
-
-                    @if($data->exists)
-                        <ol>
-                        @foreach ($posts as $post)
-                        <li>
-                            <a href='{{route('post.edit',$post)}}'>{{ $post->subject }}</a>
-                            <a href="{{route('type.desvincular',$post->type_posts_id)}}">X</a>
-                        </li>
-                        @endforeach
-                        </ol>
-                        {{ $posts->links() }}
-                    @endif
-
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">

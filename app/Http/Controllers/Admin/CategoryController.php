@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-        
+    
+    public function validator(array $data){
+        $rules = [
+            'name' => 'required|max:500',
+        ];
+
+        return Validator::make($data, $rules)->validate();
+    }
+
+
     public function list(Request $request){
         $pagination = Category::orderBy("name");
 
