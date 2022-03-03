@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomePageController;
-use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdvertController;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +21,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomePageController::class,"index"])->name('home');
 
-Route::get('/about', [HomePageController::class,"about"])->name('about');
-Route::get('/posts', [App\Http\Controllers\PostController::class,"index"])->name('posts');
+Route::get('/search', [HomePageController::class,"search"])->name('search');
 Route::get('/contact', [ContactController::class,"index"])->name('contact');
 Route::post('/contact', [ContactController::class,"send"])->name('contact.send');
 Route::get('/post1', [App\Http\Controllers\PostController1::class,"index"])->name('post1');

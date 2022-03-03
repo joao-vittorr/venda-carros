@@ -10,8 +10,8 @@ class HomePageController extends Controller
         return view("home_page");
     }
 
-    public function about(Request $request){
-        return view("about");
+    public function search(Request $request){
+        return view("search");
     }
         
 

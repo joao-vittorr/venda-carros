@@ -28,8 +28,18 @@ class CategoryController extends Controller
 
     public function create(){
         //$postsList = Post::all();
+        $categoriesList = Category::all();
         return view("admin.category.form", ["data"=>new Category()] );
     }
+
+    public function validator(array $data){
+        $rules = [
+            'name' => 'required|max:500',
+        ];
+
+        return Validator::make($data, $rules)->validate();
+    }
+
 
     public function store(Request $request){
         $validated = $this->validator($request->all());
@@ -58,6 +68,11 @@ class CategoryController extends Controller
 
     #abre o formulario de edição
     public function edit(Category $category){
+        $categoriesList = Category::all();
+
+        $categories = Category::select("categories.*", "category_posts.id as category_posts_id")
+                        ->join("category_posts","category_posts.category_id","=","categories.id")
+                        ->where("post_id",$category->id)->paginate(2);
         //$postsList = Post::all();
 
         //$posts = Post::select("posts.*", "category_posts.id as category_posts_id")

@@ -5,15 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Announcement') }}</div>
+                <div class="card-header">{{ __('Search') }}</div>
 
                 <div class="card-body">
 
 
                     @if (!$data->exists)
-                        <form id="main" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
                     @else
-                        <form id="main" method="POST" action="{{ route('post.update',$data) }}" enctype="multipart/form-data">
+                        <form id="main" method="POST" action="{{ route('advert.update',$data) }}" enctype="multipart/form-data">
                         @method('PUT')
                     @endif
 
@@ -36,7 +36,7 @@
                         
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
-                                {{ __('asasasTitle') }}
+                                {{ __('Title') }}
                             </label>
 
                             <div class="col-md-6">

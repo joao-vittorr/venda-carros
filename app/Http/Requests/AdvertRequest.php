@@ -24,7 +24,6 @@ class AdvertRequest extends FormRequest
     public function rules()
     {
         $rules = [
-
             "title" => 'required|max:200',
             'type' => 'required|max:200', 
             "brand"=> 'required|max:200',
