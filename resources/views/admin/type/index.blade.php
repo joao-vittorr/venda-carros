@@ -40,8 +40,6 @@
                           <tr>
                             <th scope="col">{{__("Edit")}}</th>
                             <th scope="col">{{__("Name")}}</th>
-                            <th scope="col">{{__("Posts qtd.")}}</th>
-                            <th scope="col">{{__("Delete")}}</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -53,7 +51,6 @@
                                         </a>
                                     </td>
                                     <td>{{$item->name}}</td>  
-                                    <td>{{ $item->posts->count() }}</td>
                                     <td>
                                         <form action="{{route('type.destroy',$item)}}" method="POST">
                                             @csrf
