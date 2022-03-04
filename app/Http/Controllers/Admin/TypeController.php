@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
-use App\Models\CategoryPost;
+
+use App\Models\Type;
+use App\Models\TypePost;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class CategoryController extends Controller
+class TypeController extends Controller
 {
     
     public function validator(array $data){
@@ -21,10 +21,10 @@ class CategoryController extends Controller
 
         return Validator::make($data, $rules)->validate();
     }
-
+    
 
     public function list(Request $request){
-        $pagination = Category::orderBy("name");
+        $pagination = Type::orderBy("name");
 
         if (isset($request->busca) && $request->busca != "") {
             $pagination->orWhere("name","like","%$request->busca%");
@@ -32,20 +32,19 @@ class CategoryController extends Controller
 
         #$pagination->dd();
         #$pagination->dump();
-        return view("admin.category.index", ["list"=>$pagination->paginate(3)]);
+        return view("admin.type.index", ["list"=>$pagination->paginate(3)]);
     }
 
     public function create(){
+        $typesList = Type::all();
         //$postsList = Post::all();
-        $categoriesList = Category::all();
-        return view("admin.category.form", ["data"=>new Category()]);
+        return view("admin.type.form", ["data"=>new Type()] );
     }
-
 
     public function store(Request $request){
         $validated = $this->validator($request->all());
-        
-        $cat = Category::create($validated);
+        $typesList = Type::all();
+        $typ = Type::create($validated);
 
         
         #vinculação com post
@@ -53,42 +52,43 @@ class CategoryController extends Controller
         //CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
     
 
-        return redirect(route("category.edit", $cat))->with("success",__("Data saved!"));
+        return redirect(route("type.edit", $typ))->with("success",__("Data saved!"));
     }
 
-    public function destroy(Category $category){
-        $category->delete();
-        return redirect(route("category.list"))->with("success",__("Data deleted!"));
+    public function destroy(Type $type){
+        $type->delete();
+        return redirect(route("type.list"))->with("success",__("Data deleted!"));
     }
 
-    public function desvincular(CategoryPost $category_post){
-        $category_post->delete();
+    public function desvincular(TypePost $type_post){
+        $type_post->delete();
         return redirect()->back()->with("success",__("Data deleted!"));
     }
 
 
     #abre o formulario de edição
-    public function edit(Category $category){
-        $categoriesList = Category::all();
+    public function edit(Type $type){
+        $typesList = Type::all();
 
-        $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
-                        ->join("category_ads","category_ads.category_id","=","categories.id")
-                        ->where("category_id",$category->id)->paginate(2);                             
-        
-        return view("admin.category.form",["data"=>$category]);
+        //$types = Type::select("types.*", "type_ads.id as type_ads_id")
+                        //->join("type_ads","type_ads.type_id","=","types.id")
+                       // ->where("type_id",$type->id)->paginate(2);
+          
+
+        return view("admin.type.form",["data"=>$type]);
     }
-
+    
     #salva as edições
-    public function update(Category $category, Request $request) {
+    public function update(Type $type, Request $request) {
         $validated = $this->validator($request->all());
-        $category->update($validated);
+        $type->update($validated);
 
 
         //$post = Post::find($request["post_id"]);
         #na documentação consta esse método
         #funciona, mas não insere os timestamps
         #$category->posts()->attach($post);
-        CategoryPost::updated(["name"=>$category->name]);
+        TypePost::updated(["name"=>$type->name]);
     
 
         return redirect()->back()->with("success",__("Data updated!"));

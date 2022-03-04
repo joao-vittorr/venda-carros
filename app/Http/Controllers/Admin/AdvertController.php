@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdvertRequest;
 use App\Models\Category;
+use App\Models\Type;
 use App\Models\Advert;
 use App\Models\Category_ads;
+use App\Models\Type_ads;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -62,6 +64,10 @@ class AdvertController extends Controller
         $categoriesList = Category::all();
         return view("admin.advert.form", ["data"=>new Advert(),
                                         "categoriesList"=>$categoriesList] );
+
+        $typesList = Type::all();
+        return view("admin.advert.form", ["data"=>new Advert(),
+                                        "typesList"=>$typesList] );
     }
 
     public function store(AdvertRequest $request){
@@ -81,6 +87,10 @@ class AdvertController extends Controller
         #vinculação com categoria
         $cat = Category::find($request["category_id"]);
         Category_ads::updated(["adverts_id"=>$post->id,"category_id"=>$cat->id]);
+        
+        #vinculação com type
+        $typ = Type::find($request["type_id"]);
+        Type_ads::updated(["adverts_id"=>$post->id,"type_id"=>$cat->id]);
     
 
         return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
@@ -107,7 +117,7 @@ class AdvertController extends Controller
     public function edit(Advert $post){
         //Gate::authorize('view', $post);
         $categoriesList = Category::all();
-
+        $typesList = Type::all();
 
         /*$categories = Category::select("categories.*", "category_posts.id as category_posts_id")
                         ->join("category_posts","category_posts.category_id","=","categories.id")
@@ -120,10 +130,15 @@ class AdvertController extends Controller
         $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
                         ->join("category_ads","category_ads.category_id","=","categories.id")
                         ->where("advests_id",$post->id)->paginate(2);
+        
+        $types = Type::select("types.*", "type_ads.id as type_ads_id")
+                       ->join("type_ads","type_ads.type_id","=","types.id")
+                       ->where("advests_id",$post->id)->paginate(2);
 
 
-        return view("admin.advert.form",["data"=>$post, "categoriesList"=>$categoriesList,
-                                         "categories"=>$categories]);
+        return view("admin.advert.form",["data"=>$post, "typesList"=>$typesList,
+                                         "types"=>$types, "categoriesList"=>$categoriesList,
+                                         "categories"=>$categories]);;
     }
 
     #salva as edições

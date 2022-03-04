@@ -28,8 +28,6 @@
                     @endif
 
                         @csrf
-
-                        {{dd($data)}}
                       
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
@@ -60,20 +58,21 @@
                                     id="type"
                                     name="type" >
                                     <option value=''>{{__("Select one option")}}</option>
-                                @foreach($categoriesList as $cat)
-                                    <option value='{{$cat->name}}'
-                                    @if (old('type',$data->cat_id) == $cat->id)
-                                        selected
-                                    @endif    
-                                    >{{$cat->name}}</option>
+                                
+                                @foreach($typesList as $typ)        
+                                    <option value='{{$typ->name}}'
+                                        @if (old('type',$data->typ_id) == $typ->id)
+                                            selected
+                                        @endif
+                                        >{{$typ->name}}</option>
                                 @endforeach
                             </select>
 
                             @if($data->exists)
-                                @foreach ($categories as $cat)
+                                @foreach ($types as $typ)
                                 <div class="btn-group" role="group">
-                                    <a href='{{route('category.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
-                                    <a href="{{route('category.desvincular',$cat->category_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
+                                    <a href='{{route('type.edit',$typ)}}'><button type="button" class="btn btn-secondary" disabled>{{ $typ->name }}</button></a>
+                                    <a href="{{route('type.desvincular',$typ->type_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
                                 </div>
                                 @endforeach
                             @endif

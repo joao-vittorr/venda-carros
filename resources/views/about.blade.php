@@ -59,14 +59,14 @@
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('category_id') is-invalid @enderror"
-                                    id="category_id"
-                                    name="category_id" >
+                            <select class="form-select @error('type_id') is-invalid @enderror"
+                                    id="type_id"
+                                    name="type_id" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
                                     <option value='{{$cat->id}}'
-                                        @if (old('category_id',$data->category_id) == $cat->id)
+                                        @if (old('type_id',$data->type_id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
@@ -76,13 +76,13 @@
                             @if($data->exists)
                                 @foreach ($categories as $cat)
                                 <div class="btn-group" role="group">
-                                    <a href='{{route('category.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
-                                    <a href="{{route('category.desvincular',$cat->category_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
+                                    <a href='{{route('type.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
+                                    <a href="{{route('type.desvincular',$cat->type_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
                                 </div>
                                 @endforeach
                             @endif
 
-                            @error('category_id')
+                            @error('type_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
