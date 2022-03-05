@@ -36,9 +36,8 @@ class CategoryController extends Controller
     }
 
     public function create(){
-        //$postsList = Post::all();
         $categoriesList = Category::all();
-        return view("admin.category.form", ["data"=>new Category()]);
+        return view("admin.category.form", ["data"=>new Category(),  "categoriesList"=>$categoriesList]);
     }
 
 
@@ -75,7 +74,7 @@ class CategoryController extends Controller
                         ->join("category_ads","category_ads.category_id","=","categories.id")
                         ->where("category_id",$category->id)->paginate(2);                             
         
-        return view("admin.category.form",["data"=>$category]);
+        return view("admin.category.form",["data"=>$category, "categoriesList"=>$categoriesList, "categories"=>$categories]);
     }
 
     #salva as edições

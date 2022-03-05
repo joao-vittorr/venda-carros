@@ -62,12 +62,9 @@ class AdvertController extends Controller
     public function create(){
         //Gate::authorize('create', Advert::class);
         $categoriesList = Category::all();
+        $typeList = Type::all();
         return view("admin.advert.form", ["data"=>new Advert(),
-                                        "categoriesList"=>$categoriesList] );
-
-        $typesList = Type::all();
-        return view("admin.advert.form", ["data"=>new Advert(),
-                                        "typesList"=>$typesList] );
+                                        "typesList"=>$typeList, "categoriesList"=>$categoriesList] );
     }
 
     public function store(AdvertRequest $request){
@@ -86,11 +83,11 @@ class AdvertController extends Controller
         
         #vinculação com categoria
         $cat = Category::find($request["category_id"]);
-        Category_ads::updated(["adverts_id"=>$post->id,"category_id"=>$cat->id]);
+        Category_ads::updateOrCreate(["adverts_id"=>$post->id,"category_id"=>$cat->id]);
         
         #vinculação com type
         $typ = Type::find($request["type_id"]);
-        Type_ads::updated(["adverts_id"=>$post->id,"type_id"=>$cat->id]);
+        Type_ads::updateOrCreate(["adverts_id"=>$post->id,"type_id"=>$typ->id]);
     
 
         return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
@@ -117,7 +114,7 @@ class AdvertController extends Controller
     public function edit(Advert $post){
         //Gate::authorize('view', $post);
         $categoriesList = Category::all();
-        $typesList = Type::all();
+        $typeList = Type::all();
 
         /*$categories = Category::select("categories.*", "category_posts.id as category_posts_id")
                         ->join("category_posts","category_posts.category_id","=","categories.id")
@@ -136,7 +133,7 @@ class AdvertController extends Controller
                        ->where("advests_id",$post->id)->paginate(2);
 
 
-        return view("admin.advert.form",["data"=>$post, "typesList"=>$typesList,
+        return view("admin.advert.form",["data"=>$post, "typeList"=>$typeList,
                                          "types"=>$types, "categoriesList"=>$categoriesList,
                                          "categories"=>$categories]);;
     }

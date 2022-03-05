@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Type extends Model {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ["name"];
+    protected $fillable = ['advert_id','name'];
 
     public function posts(){
         return $this->belongsToMany(Advert::class, "type_posts");

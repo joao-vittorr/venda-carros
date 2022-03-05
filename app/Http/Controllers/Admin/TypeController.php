@@ -36,14 +36,13 @@ class TypeController extends Controller
     }
 
     public function create(){
-        $typesList = Type::all();
-        //$postsList = Post::all();
-        return view("admin.type.form", ["data"=>new Type()] );
+        $typeList = Type::all();
+
+        return view("admin.type.form", ["data"=>new Type(), "typeList"=>$typeList] );
     }
 
     public function store(Request $request){
         $validated = $this->validator($request->all());
-        $typesList = Type::all();
         $typ = Type::create($validated);
 
         
@@ -68,14 +67,14 @@ class TypeController extends Controller
 
     #abre o formulario de edição
     public function edit(Type $type){
-        $typesList = Type::all();
+        $typeList = Type::all();
 
-        //$types = Type::select("types.*", "type_ads.id as type_ads_id")
-                        //->join("type_ads","type_ads.type_id","=","types.id")
-                       // ->where("type_id",$type->id)->paginate(2);
+        $types = Type::select("types.*", "type_ads.id as type_ads_id")
+                        ->join("type_ads","type_ads.type_id","=","types.id")
+                       ->where("type_id",$type->id)->paginate(2);
           
 
-        return view("admin.type.form",["data"=>$type]);
+        return view("admin.type.form",["data"=>$type, "typeList"=>$typeList, "types"=>$types]);
     }
     
     #salva as edições

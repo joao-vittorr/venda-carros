@@ -58,7 +58,7 @@
                                     id="type"
                                     name="type" >
                                     <option value=''>{{__("Select one option")}}</option>
-                                
+
                                 @foreach($typesList as $typ)        
                                     <option value='{{$typ->name}}'
                                         @if (old('type',$data->typ_id) == $typ->id)
