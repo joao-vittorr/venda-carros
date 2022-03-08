@@ -78,17 +78,7 @@ class AdvertController extends Controller
         $data["photo"] = $path;
         $data["user_id"] = Auth::user()->id;
 
-        $post = Advert::create($data);
-
-        
-        #vinculação com categoria
-        $cat = Category::find($request["category_id"]);
-        Category_ads::updateOrCreate(["adverts_id"=>$post->id,"category_id"=>$cat->id]);
-        
-        #vinculação com type
-        $typ = Type::find($request["type_id"]);
-        Type_ads::updateOrCreate(["adverts_id"=>$post->id,"type_id"=>$typ->id]);
-    
+        $post = Advert::create($data); 
 
         return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
     }
@@ -116,14 +106,7 @@ class AdvertController extends Controller
         $categoriesList = Category::all();
         $typeList = Type::all();
 
-        /*$categories = Category::select("categories.*", "category_posts.id as category_posts_id")
-                        ->join("category_posts","category_posts.category_id","=","categories.id")
-                        ->where("post_id",$post->id)->paginate(2);
-        
-        $posts = Post::select("posts.*", "category_posts.id as category_posts_id")
-                ->join("category_posts","category_posts.post_id","=","posts.id")
-                ->where("category_id",$category->id)->paginate(2);
-        */
+
         $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
                         ->join("category_ads","category_ads.category_id","=","categories.id")
                         ->where("advests_id",$post->id)->paginate(2);
@@ -152,12 +135,6 @@ class AdvertController extends Controller
 
         $post->update($data);
 
-
-        #vinculação com categoria
-       /* if ($request["category_id"]){
-            $cat = Category::find($request["category_id"]);
-            CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
-        }*/
 
 
         return redirect()->back()->with("success",__("Data updated!"));

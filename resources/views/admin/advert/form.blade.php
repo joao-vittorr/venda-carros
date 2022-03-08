@@ -29,6 +29,7 @@
 
                         @csrf
                       
+
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Title') }}
@@ -59,7 +60,7 @@
                                     name="type" >
                                     <option value=''>{{__("Select one option")}}</option>
 
-                                @foreach($typesList as $typ)        
+                                @foreach($typeList as $typ)        
                                     <option value='{{$typ->name}}'
                                         @if (old('type',$data->typ_id) == $typ->id)
                                             selected
@@ -67,15 +68,6 @@
                                         >{{$typ->name}}</option>
                                 @endforeach
                             </select>
-
-                            @if($data->exists)
-                                @foreach ($types as $typ)
-                                <div class="btn-group" role="group">
-                                    <a href='{{route('type.edit',$typ)}}'><button type="button" class="btn btn-secondary" disabled>{{ $typ->name }}</button></a>
-                                    <a href="{{route('type.desvincular',$typ->type_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
-                                </div>
-                                @endforeach
-                            @endif
 
                             @error('type')
                                 <span class="invalid-feedback" role="alert">
@@ -105,15 +97,6 @@
                                         >{{$cat->name}}</option>
                                 @endforeach
                             </select>
-
-                            @if($data->exists)
-                                @foreach ($categories as $cat)
-                                <div class="btn-group" role="group">
-                                    <a href='{{route('brand.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
-                                    <a href="{{route('brand.desvincular',$cat->brand_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
-                                </div>
-                                @endforeach
-                            @endif
                             
                             @error('brand')
                                 <span class="invalid-feedback" role="alert">
