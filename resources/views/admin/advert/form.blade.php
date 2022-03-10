@@ -78,26 +78,26 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-end">
+                            <label for="brand_id" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Category') }}
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('category_id') is-invalid @enderror"
+                            <select class="form-select @error('brand_id') is-invalid @enderror"
                                     id="category"
                                     name="category" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
-                                    <option value='{{$cat->nid}}'
-                                        @if (old('category_id',$data->category?->id) == $cat->id)
+                                    <option value='{{$cat->id}}'
+                                        @if (old('brand_id',$data->category?->id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
                                 @endforeach
                             </select>
                             
-                            @error('category_id')
+                            @error('brand_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

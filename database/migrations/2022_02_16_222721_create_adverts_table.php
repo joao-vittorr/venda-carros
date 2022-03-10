@@ -29,7 +29,7 @@ class CreateAdvertsTable extends Migration
             $table->text("description");
             $table->foreignId("user_id")->constrained();
             $table->foreignId("type_id")->constrained();
-            $table->foreignId("category_id")->constrained();
+            $table->foreignId("brand_id")->constrained();
             $table->softDeletes();
         });
     }
