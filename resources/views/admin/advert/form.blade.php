@@ -50,26 +50,26 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">
+                            <label for="type_id" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Type') }}
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('type') is-invalid @enderror"
-                                    id="type"
-                                    name="type" >
+                            <select class="form-select @error('type_id') is-invalid @enderror"
+                                    id="type_id"
+                                    name="type_id" >
                                     <option value=''>{{__("Select one option")}}</option>
-
-                                @foreach($typeList as $typ)        
-                                    <option value='{{$typ->name}}'
-                                        @if (old('type',$data->typ_id) == $typ->id)
+                            
+                                @foreach($typesList as $typ)        
+                                    <option value='{{$typ->id}}'
+                                        @if (old('type_id', $data->type?->id) == $typ->id)
                                             selected
                                         @endif
                                         >{{$typ->name}}</option>
                                 @endforeach
                             </select>
 
-                            @error('type')
+                            @error('type_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -193,9 +193,9 @@
                                     <option selected value="">Open this select menu</option>
                                     @for ($i = 1950; $i <= date("Y"); $i++)
                                          <option value={{$i}}  
-                                        @if (old('manuf_year',$data->cat_id) == $cat->id)
+                                       @if (old('manuf_year',$data->manuf_year) == $i)
                                             selected
-                                        @endif>{{$i}}</option>
+                                        @endif>{{$i}}</option> 
                                     @endfor
                                 </select>
 

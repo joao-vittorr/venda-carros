@@ -62,9 +62,9 @@ class AdvertController extends Controller
     public function create(){
         //Gate::authorize('create', Advert::class);
         $categoriesList = Category::all();
-        $typeList = Type::all();
+        $typesList = Type::all();
         return view("admin.advert.form", ["data"=>new Advert(),
-                                        "typesList"=>$typeList, "categoriesList"=>$categoriesList] );
+                                        "typesList"=>$typesList, "categoriesList"=>$categoriesList] );
     }
 
     public function store(AdvertRequest $request){
@@ -78,14 +78,15 @@ class AdvertController extends Controller
         $data["photo"] = $path;
         $data["user_id"] = Auth::user()->id;
 
-        $post = Advert::create($data); 
+        $advert = Advert::create($data);
 
-        return redirect(route("advert.edit", $post))->with("success",__("Data saved!"));
+
+        return redirect(route("advert.edit", $advert))->with("success",__("Data saved!"));
     }
 
     public function validator(array $data){
         $rules = [
-            'type' => 'required|max:100',
+            'type_id' => 'required|integer',
             'brand' => 'required|max:100',
             'manuf_year' => 'required|max:100',
         ];
@@ -93,37 +94,37 @@ class AdvertController extends Controller
         return Validator::make($data, $rules)->validate();
     }
 
-    public function destroy(Advert $post){
-        //Gate::authorize('delete', $post);
-        $post->delete();
+    public function destroy(Advert $advert){
+        //Gate::authorize('delete', $advert);
+        $advert->delete();
         return redirect(route("advert.list"))->with("success",__("Data deleted!"));
     }
 
 
     #abre o formulario de edição
-    public function edit(Advert $post){
-        //Gate::authorize('view', $post);
+    public function edit(Advert $advert){
+        //Gate::authorize('view', $advert);
         $categoriesList = Category::all();
-        $typeList = Type::all();
+        $typesList = Type::all();
 
 
         $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
                         ->join("category_ads","category_ads.category_id","=","categories.id")
-                        ->where("advests_id",$post->id)->paginate(2);
+                        ->where("advests_id",$advert->id)->paginate(2);
         
         $types = Type::select("types.*", "type_ads.id as type_ads_id")
                        ->join("type_ads","type_ads.type_id","=","types.id")
-                       ->where("advests_id",$post->id)->paginate(2);
+                       ->where("advests_id",$advert->id)->paginate(2);
 
 
-        return view("admin.advert.form",["data"=>$post, "typeList"=>$typeList,
+        return view("admin.advert.form",["data"=>$advert, "typesList"=>$typesList,
                                          "types"=>$types, "categoriesList"=>$categoriesList,
                                          "categories"=>$categories]);;
     }
 
     #salva as edições
-    public function update(Advert $post, AdvertRequest $request) {
-        //Gate::authorize('update', $post);
+    public function update(Advert $advert, AdvertRequest $request) {
+        //Gate::authorize('update', $advert);
         $validated = $request->validated();
 
         $data = $request->all();
@@ -133,7 +134,7 @@ class AdvertController extends Controller
             $data["photo"] = $path;
         }
 
-        $post->update($data);
+        $advert->update($data);
 
 
 

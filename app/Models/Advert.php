@@ -13,7 +13,7 @@ use HasFactory, SoftDeletes;
 
 protected $fillable = [
     "title",
-    "type",
+    //"type",
     "brand",
     "model",
     "color",
@@ -23,11 +23,16 @@ protected $fillable = [
     "price",
     "photo",
     "description",
-    "user_id"
+    "user_id",
+    "type_id"
 ];
 
 public function user(){
     return $this->belongsTo(User::class);
+}
+
+public function type(){
+    return $this->belongsTo(Type::class);
 }
 
 }
