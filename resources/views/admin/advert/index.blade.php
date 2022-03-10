@@ -55,11 +55,11 @@
                                     {{ __('Search') }}
                                 </button>
 
-                               {{-- @can('create','App\Models\Advert')  --}}
+                               @can('create','App\Models\Advert')
                                 <a class='btn btn-secondary' href="{{route('advert.create')}}">
                                     {{__('New Advertisement')}}
                                 </a>
-                                {{-- @endcan --}}
+                                @endcan
                                 
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                 <th scope="col">{{__("Edit")}}</th>
                             @endcan
                             <th scope="col">{{__("Name")}}</th>
-                            <th scope="col">{{__("Brand")}}</th>
+                            <th scope="col">{{__("Category")}}</th>
                             <th scope="col">{{__("Ad Date")}}</th>
                             @can('deleteAny','App\Models\Advert')  
                                 <th scope="col">{{__("Delete")}}</th>
@@ -93,7 +93,7 @@
                                     <td>{{$item->type}}</td>    
                                     <td>{{$item->brand}}</td>
                                     <td>{{$item->created_at}}</td>     
-                                    {{--<td>{{$item->user->name}}</td>  --}}
+                                    <td>{{$item->user->name}}</td> 
                                     @can('delete',$item)  
                                     <td>
                                         <form action="{{route('advert.destroy',$item)}}" method="post">

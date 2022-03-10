@@ -84,15 +84,7 @@ class AdvertController extends Controller
         return redirect(route("advert.edit", $advert))->with("success",__("Data saved!"));
     }
 
-    public function validator(array $data){
-        $rules = [
-            'type_id' => 'required|integer',
-            'brand' => 'required|max:100',
-            'manuf_year' => 'required|max:100',
-        ];
 
-        return Validator::make($data, $rules)->validate();
-    }
 
     public function destroy(Advert $advert){
         //Gate::authorize('delete', $advert);

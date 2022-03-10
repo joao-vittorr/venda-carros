@@ -26,7 +26,7 @@ class AdvertRequest extends FormRequest
         $rules = [
             "title" => 'required|max:200',
             'type_id' => 'required|integer', 
-            "brand"=> 'required|max:200',
+            'category_id' => 'required|integer', 
             "model"=> 'required|max:200',
             "color"=> 'required|max:200',
             "mult"=> 'required|max:200',

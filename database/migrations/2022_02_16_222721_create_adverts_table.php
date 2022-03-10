@@ -18,7 +18,7 @@ class CreateAdvertsTable extends Migration
             $table->timestamps();
             $table->string("title",250);
             //$table->string("type",250);
-            $table->string("brand",250);
+            //$table->string("brand",250);
             $table->string("model",250);
             $table->string("color",250);
             $table->string("mult",250);
@@ -29,6 +29,7 @@ class CreateAdvertsTable extends Migration
             $table->text("description");
             $table->foreignId("user_id")->constrained();
             $table->foreignId("type_id")->constrained();
+            $table->foreignId("category_id")->constrained();
             $table->softDeletes();
         });
     }

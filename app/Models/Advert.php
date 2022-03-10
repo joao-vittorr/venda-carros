@@ -14,7 +14,7 @@ use HasFactory, SoftDeletes;
 protected $fillable = [
     "title",
     //"type",
-    "brand",
+    //"brand",
     "model",
     "color",
     "mult",
@@ -24,6 +24,7 @@ protected $fillable = [
     "photo",
     "description",
     "user_id",
+    "category_id",
     "type_id"
 ];
 
@@ -35,4 +36,7 @@ public function type(){
     return $this->belongsTo(Type::class);
 }
 
+public function category(){
+    return $this->belongsTo(Category::class);
+}
 }

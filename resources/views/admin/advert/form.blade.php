@@ -28,7 +28,6 @@
                     @endif
 
                         @csrf
-                      
 
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
@@ -79,26 +78,26 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Brand') }}
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Category') }}
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('brand') is-invalid @enderror"
-                                    id="brand"
-                                    name="brand" >
+                            <select class="form-select @error('category_id') is-invalid @enderror"
+                                    id="category"
+                                    name="category" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
-                                    <option value='{{$cat->name}}'
-                                        @if (old('brand',$data->cat_id) == $cat->id)
+                                    <option value='{{$cat->nid}}'
+                                        @if (old('category_id',$data->category?->id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
                                 @endforeach
                             </select>
                             
-                            @error('brand')
+                            @error('category_id')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -292,17 +291,17 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                {{--@can('update',$data)--}}
+                                @can('update',$data)
                                     <button type="submit" id="btn-save" class="btn btn-primary" form="main">
                                         {{ __('Publish') }}
                                     </button>
-                                {{--@endcan--}}
+                                @endcan
 
-                                {{--@can('create','App\\Models\Advert')--}}
+                                @can('create','App\\Models\Advert')
                                 <a class='btn btn-secondary' href="{{route('advert.create')}}">
                                     {{__('New Advertisement')}}
                                 </a>
-                                {{--@endcan--}}
+                                @endcan
 
 
                                                                 
