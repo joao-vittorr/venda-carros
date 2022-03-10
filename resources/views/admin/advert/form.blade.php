@@ -78,14 +78,14 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="brand_id" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Category') }}
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Brand') }}
                             </label>
     
                             <div class="col-md-6">
-                            <select class="form-select @error('brand_id') is-invalid @enderror"
-                                    id="category"
-                                    name="category" >
+                            <select class="form-select @error('category_id') is-invalid @enderror"
+                                    id="category_id"
+                                    name="category_id" >
                                     <option value=''>{{__("Select one option")}}</option>
                                 @foreach($categoriesList as $cat)
                                 
@@ -97,11 +97,7 @@
                                 @endforeach
                             </select>
                             
-                            @error('brand_id')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            
                             </div>
                             
 
@@ -155,8 +151,8 @@
                             <li class="list-group">    
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault">
-                                        <input class="form-check-input" name="mult" value="sim" type="radio" id="flexSwitchCheckDefault" 
-                                        @if (old('brand',$data->mult) == true)
+                                        <input class="form-check-input" name="mult" value="1" type="radio" id="flexSwitchCheckDefault" 
+                                        @if (old('mult',$data->mult) == '1')
                                             checked
                                         @endif>
                                     SIM</label>
@@ -165,7 +161,10 @@
                             <li class="list-group">
                                 <div class="form-check form-check-inline">
                                     <label class="form-check-label" for="flexSwitchCheckDefault2">
-                                    <input class="form-check-input" name="mult" value="nao" type="radio" id="flexSwitchCheckDefault" checked>
+                                        <input class="form-check-input" name="mult" value="0" type="radio" id="flexSwitchCheckDefault"
+                                        @if (old('mult',$data->mult) == '0')
+                                            checked
+                                        @endif>
                                     NÃO</label>
                                 </div>
                             </li>
@@ -179,6 +178,8 @@
                                 @enderror
                             </div>
                         </div>
+
+
 
                         <div class="row mb-3">
                             <label for="manuf_year" class="col-md-4 col-form-label text-md-end">

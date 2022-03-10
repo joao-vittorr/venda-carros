@@ -64,7 +64,7 @@
 
                             @can('admin-access')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category.list') }}">{{ __('Category') }}</a>
+                                <a class="nav-link" href="{{ route('category.list') }}">{{ __('Brand') }}</a>
                             </li>
                             
                             <li class="nav-item">

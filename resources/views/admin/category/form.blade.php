@@ -92,7 +92,7 @@
                                 </button>
 
                                 <a class='btn btn-secondary' href="{{route('category.create')}}">
-                                    {{__('New category')}}
+                                    {{__('New Brand')}}
                                 </a>
 
 

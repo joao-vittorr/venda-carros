@@ -30,8 +30,8 @@ class AdvertController extends Controller
         if (isset($request->type) && $request->type != "")
             $pagination->where("type","like","%$request->type%");
         
-        if (isset($request->brand) && $request->brand != "")
-            $pagination->where("brand","like","%$request->brand%");
+        if (isset($request->category) && $request->category != "")
+            $pagination->where("category","like","%$request->category%");
 
         if (isset($request->model) && $request->model != "")
             $pagination->where("model","like","%$request->model%");

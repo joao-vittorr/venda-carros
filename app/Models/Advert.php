@@ -22,7 +22,7 @@ protected $fillable = [
     "photo",
     "description",
     "user_id",
-    "brand_id",
+    "category_id",
     "type_id"
 ];
 
@@ -34,7 +34,7 @@ public function type(){
     return $this->belongsTo(Type::class);
 }
 
-public function brand(){
+public function category(){
     return $this->belongsTo(Category::class);
 }
 }
