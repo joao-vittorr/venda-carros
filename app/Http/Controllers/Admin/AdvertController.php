@@ -54,8 +54,7 @@ class AdvertController extends Controller
         if (isset($request->price) && $request->price != "")
             $pagination->where("price",$request->price);
 
-        #$pagination->dd();
-        #$pagination->dump();
+
         return view("admin.advert.index", ["list"=>$pagination->paginate(3)]);
     }
 

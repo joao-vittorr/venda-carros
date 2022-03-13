@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     public function index(Request $request){
-        return view("search");
+        $data = $request->all();
+        return view("search", $data);
     }
-        
+  
 }

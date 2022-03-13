@@ -10,7 +10,7 @@
                 <div class="card-body">
 
 
-                    @if (!$data->exists)
+                   @if (!$data->exists)
                         <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
                     @else
                         <form id="main" method="POST" action="{{ route('advert.update',$data) }}" enctype="multipart/form-data">

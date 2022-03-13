@@ -34,7 +34,7 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">{{__("Edit")}}</th>
+                            <th scope="col"></th>
                             <th scope="col">{{__("Name")}}</th>
                             <th scope="col">{{__("E-mail")}}</th>
                             <th scope="col">{{__("Posts count")}}</th>
@@ -45,7 +45,7 @@
                                 <tr>
                                     <td>
                                         <a href="{{route("user.edit",$item)}}" class="btn btn-primary">
-                                            {{ __('Edit') }}
+                                            {{ __('View') }}
                                         </a>
                                     </td>
                                     <td>{{$item->name}}</td>    
