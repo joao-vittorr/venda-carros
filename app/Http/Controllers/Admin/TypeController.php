@@ -30,8 +30,7 @@ class TypeController extends Controller
             $pagination->orWhere("name","like","%$request->busca%");
         }
 
-        #$pagination->dd();
-        #$pagination->dump();
+       
         return view("admin.type.index", ["list"=>$pagination->paginate(3)]);
     }
 

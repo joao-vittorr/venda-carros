@@ -92,7 +92,7 @@ class AdvertController extends Controller
     }
 
 
-    #abre o formulario de edição
+   
     public function edit(Advert $advert){
         //Gate::authorize('view', $advert);
         $categoriesList = Category::all();
@@ -113,7 +113,7 @@ class AdvertController extends Controller
                                          "categories"=>$categories]);;
     }
 
-    #salva as edições
+   
     public function update(Advert $advert, AdvertRequest $request) {
         //Gate::authorize('update', $advert);
         $validated = $request->validated();

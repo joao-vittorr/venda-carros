@@ -9,31 +9,13 @@
 
                 <div class="card-body">
 
+                   
+                
 
-                   @if (!$data->exists)
-                        <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
-                    @else
-                        <form id="main" method="POST" action="{{ route('advert.update',$data) }}" enctype="multipart/form-data">
-                        @method('PUT')
-                    @endif
-
+                    <form id="main" method="POST" action="{{ route('advert.list') }}" enctype="multipart/form-data">
+                   
                         @csrf
-
-                        @if ($data->exists)            
-                        <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Owner') }}</label>
-                            
-                                <div class="col-md-6">
-                                    <input  class="form-control"
-                                    name="subject" value="{{ $data->user->name }}"
-                                    disabled>
-                                </div>
-                        </div>
-                        @endif
-
-                        
-                        
+                       
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Title') }}
@@ -42,7 +24,7 @@
                             <div class="col-md-6">
                                 <input id="title" type="text" 
                                     class="form-control @error('title') is-invalid @enderror" 
-                                    name="subject" value="{{ old('title', $data->subject) }}"  
+                                    name="title" value="{{ old('title', $data->title) }}"  
                                     autofocus>
 
                                 @error('title')
@@ -54,8 +36,37 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">
+                            <label for="type_id" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Type') }}
+                            </label>
+    
+                            <div class="col-md-6">
+                            <select class="form-select @error('type_id') is-invalid @enderror"
+                                    id="type_id"
+                                    name="type_id" >
+                                    <option value=''>{{__("Select one option")}}</option>
+                            
+                                @foreach($typesList as $typ)        
+                                    <option value='{{$typ->id}}'
+                                        @if (old('type_id', $data->type?->id) == $typ->id)
+                                            selected
+                                        @endif
+                                        >{{$typ->name}}</option>
+                                @endforeach
+                            </select>
+
+                            @error('type_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Brand') }}
                             </label>
     
                             <div class="col-md-6">
@@ -66,79 +77,28 @@
                                 @foreach($categoriesList as $cat)
                                 
                                     <option value='{{$cat->id}}'
-                                        @if (old('category_id',$data->category_id) == $cat->id)
+                                        @if (old('brand_id',$data->category?->id) == $cat->id)
                                             selected
                                         @endif
                                         >{{$cat->name}}</option>
                                 @endforeach
                             </select>
-
-                            @if($data->exists)
-                                @foreach ($categories as $cat)
-                                <div class="btn-group" role="group">
-                                    <a href='{{route('category.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
-                                    <a href="{{route('category.desvincular',$cat->category_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
-                                </div>
-                                @endforeach
-                            @endif
-
-                            @error('category_id')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            </div>
-
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Brand') }}
-                            </label>
-    
-                            <div class="col-md-6">
-                            <select class="form-select @error('brand_id') is-invalid @enderror"
-                                    id="brand_id"
-                                    name="brand_id" >
-                                    <option value=''>{{__("Select one option")}}</option>
-                                @foreach($categoriesList as $cat)
-                                
-                                    <option value='{{$cat->id}}'
-                                        @if (old('brand_id',$data->brand_id) == $cat->id)
-                                            selected
-                                        @endif
-                                        >{{$cat->name}}</option>
-                                @endforeach
-                            </select>
-
-                            {{--@if($data->exists)
-                                @foreach ($categories as $cat)
-                                <div class="btn-group" role="group">
-                                    <a href='{{route('brand.edit',$cat)}}'><button type="button" class="btn btn-secondary" disabled>{{ $cat->name }}</button></a>
-                                    <a href="{{route('brand.desvincular',$cat->brand_posts_id)}}"><button type="button" class="btn btn-danger">X</button></a>
-                                </div>
-                                @endforeach
-                            @endif
                             
-                            @error('brand_id')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            
                             </div>
-                            --}}
+                            
 
                         </div>
 
                         <div class="row mb-3">
-                            <label for="subject" class="col-md-4 col-form-label text-md-end">
+                            <label for="model" class="col-md-4 col-form-label text-md-end">
                                 {{ __('Model') }}
                             </label>
 
                             <div class="col-md-6">
                                 <input id="model" type="text" 
                                     class="form-control @error('model') is-invalid @enderror" 
-                                    name="subject" value="{{ old('model', $data->subject) }}"  
+                                    name="model" value="{{ old('model', $data->model) }}"  
                                     autofocus>
 
                                 @error('model')
@@ -170,50 +130,82 @@
 
                         
                         <div class="row mb-3">
-                            <label for="color" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Multimidia') }}
+                            <label for="mult" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Multimedia') }}
                             </label>
-
+                        <div class="col-md-6">
                         <ul class="list-group list-group-horizontal" style="justify-content: center">
-                            <li class="list-group-item">    
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">SOM</label>
+                            <li class="list-group">    
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">
+                                        <input class="form-check-input" name="mult" value="1" type="radio" id="flexSwitchCheckDefault" 
+                                        @if (old('mult',$data->mult) == '1')
+                                            checked
+                                        @endif>
+                                    SIM</label>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">CENTRAL</label>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">TELA PARA PASSAGEIROS</label>
+                            <li class="list-group">
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault2">
+                                        <input class="form-check-input" name="mult" value="0" type="radio" id="flexSwitchCheckDefault"
+                                        @if (old('mult',$data->mult) == '0')
+                                            checked
+                                        @endif>
+                                    NÃO</label>
                                 </div>
                             </li>
                         </ul>
+
                        
-                            @error('color')
-                              <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                              </span>
-                             @enderror
-
+                                @error('mult')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
 
+
+
                         <div class="row mb-3">
-                            <label for="publish_date" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Publish date') }}
+                            <label for="manuf_year" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Year of Manufacture') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="publish_date" type="date" 
-                                    class="form-control @error('publish_date') is-invalid @enderror" 
-                                    name="publish_date" value="{{ old('publish_date',$data->publish_date == "" ? "" : $data->publish_date->format('Y-m-d')) }}"  >
+                                <select class="form-select @error('manuf_year') is-invalid @enderror"
+                                id="manuf_year"
+                                name="manuf_year">
+                                    <option selected value="">Open this select menu</option>
+                                    @for ($i = 1950; $i <= date("Y"); $i++)
+                                         <option value={{$i}}  
+                                       @if (old('manuf_year',$data->manuf_year) == $i)
+                                            selected
+                                        @endif>{{$i}}</option> 
+                                    @endfor
+                                </select>
 
-                                @error('publish_date')
+                                @error('manuf_year')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="mileage" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Mileage') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="mileage" type="text" 
+                                    class="form-control @error('mileage') is-invalid @enderror" 
+                                    name="mileage" value="{{ old('mileage', $data->mileage) }}"  
+                                    autofocus>
+
+                                @error('mileage')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -223,53 +215,17 @@
 
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Image') }}
+                            <label for="price" class="col-md-4 col-form-label text-md-end">
+                                {{ __('Price') }}
                             </label>
 
                             <div class="col-md-6">
-                                <input id="image" type="file" 
-                                    class="form-control @error('image') is-invalid @enderror" 
-                                    name="image" value="{{ old('image', $data->image) }}"  >
+                                <input id="price" type="text" 
+                                    class="form-control @error('price') is-invalid @enderror" 
+                                    name="price" value="{{ old('price', $data->price) }}"  
+                                    autofocus>
 
-
-                                @if ($data->id)
-                                    <img src="{{asset($data->image)}}" class="rounded" width='200'/>
-                                @endif
-                                
-
-                                @error('image')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="slug" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Slug') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="slug" type="text" 
-                                    class="form-control" 
-                                    value="{{ old('slug', $data->slug) }}" 
-                                    disabled>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="text" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Text') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <textarea id="text" type="text" 
-                                    class="form-control @error('text') is-invalid @enderror" 
-                                    name="text" >{{ old('text', $data->text) }}</textarea>
-
-                                @error('text')
+                                @error('price')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

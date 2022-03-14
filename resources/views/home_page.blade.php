@@ -20,11 +20,11 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <form class="form-subscribe" id="search" data-sb-form-api-token="API_TOKEN"  method="POST">
                                 <!-- Email address input-->
                                 <div class="row">
                                     <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="text" placeholder="Digite o veículo que está buscando" data-sb-validations="required,email" />
+                                        <input class="form-control form-control-lg" id="search" type="text" placeholder="Digite o veículo que está buscando" />
                                     </div>
                                     <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">Pesquisar</button></div>
                                 </div>

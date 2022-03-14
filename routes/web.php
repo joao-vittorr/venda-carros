@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdvertController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomePageController::class,"index"])->name('home');
 
-Route::get('/search', [HomePageController::class,"search"])->name('search');
+
 Route::get('/contact', [ContactController::class,"index"])->name('contact');
 Route::post('/contact', [ContactController::class,"send"])->name('contact.send');
 Route::get('/post1', [App\Http\Controllers\PostController1::class,"index"])->name('post1');

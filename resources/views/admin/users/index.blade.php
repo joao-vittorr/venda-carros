@@ -37,7 +37,7 @@
                             <th scope="col"></th>
                             <th scope="col">{{__("Name")}}</th>
                             <th scope="col">{{__("E-mail")}}</th>
-                            <th scope="col">{{__("Posts count")}}</th>
+                            <th scope="col">{{__("Level")}}</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -49,9 +49,12 @@
                                         </a>
                                     </td>
                                     <td>{{$item->name}}</td>    
-                                    <td>{{$item->email}}</td>    
-                                    <td>{{$item->posts->count()}}</td>    
-
+                                    <td>{{$item->email}}</td>
+                                    @if ($item->level == 0)
+                                        <td>Padrão</td>
+                                    @else
+                                        <td>Administrador</td>
+                                    @endif    
                                 </tr>
                             @endforeach
 
