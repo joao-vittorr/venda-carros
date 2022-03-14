@@ -101,11 +101,11 @@ class AdvertController extends Controller
 
         $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
                         ->join("category_ads","category_ads.category_id","=","categories.id")
-                        ->where("advests_id",$advert->id)->paginate(2);
+                        ->where("id",$advert->id)->paginate(2);
         
         $types = Type::select("types.*", "type_ads.id as type_ads_id")
                        ->join("type_ads","type_ads.type_id","=","types.id")
-                       ->where("advests_id",$advert->id)->paginate(2);
+                       ->where("id",$advert->id)->paginate(2);
 
 
         return view("admin.advert.form",["data"=>$advert, "typesList"=>$typesList,
