@@ -1,7 +1,8 @@
 $(function(){
 
     $(".phone").mask("(00)00000-0000");
-    $(".price").mask("0.000,00")
+    $('.price').mask('000.000.000.000.000,00', {reverse: true});
+
 });
 
 var pendingFormConfirmation;

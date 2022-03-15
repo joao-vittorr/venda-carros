@@ -224,7 +224,7 @@
 
                             <div class="col-md-6">
                                 <input id="price" type="text" 
-                                    class="form-control @error('price') is-invalid @enderror" 
+                                    class="form-control price @error('price') is-invalid @enderror" 
                                     name="price" value="{{ old('price', $data->price) }}"  
                                     autofocus>
 
