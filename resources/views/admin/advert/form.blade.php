@@ -180,7 +180,7 @@
                                 <select class="form-select @error('manuf_year') is-invalid @enderror"
                                 id="manuf_year"
                                 name="manuf_year">
-                                    <option selected value="">Open this select menu</option>
+                                    <option selected value="">{{__("Select one year")}}</option>
                                     @for ($i = 1950; $i <= date("Y"); $i++)
                                          <option value={{$i}}  
                                        @if (old('manuf_year',$data->manuf_year) == $i)
@@ -219,7 +219,7 @@
 
                         <div class="row mb-3">
                             <label for="price" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Price') }}
+                                {{ __('Price') }} R$
                             </label>
 
                             <div class="col-md-6">
