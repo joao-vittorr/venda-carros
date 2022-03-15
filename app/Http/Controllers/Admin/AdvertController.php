@@ -8,7 +8,9 @@ use App\Models\Category;
 use App\Models\Type;
 use App\Models\Advert;
 use App\Models\Category_ads;
+use App\Models\CategoryPost;
 use App\Models\Type_ads;
+use App\Models\TypePost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -99,11 +101,11 @@ class AdvertController extends Controller
         $typesList = Type::all();
 
 
-        $categories = Category::select("categories.*", "category_ads.id as category_ads_id")
+        $categories = Category_ads::select("categories.*", "category_ads.id as category_ads_id")
                         ->join("category_ads","category_ads.category_id","=","categories.id")
                         ->where("advests_id",$advert->id)->paginate(2);
         
-        $types = Type::select("types.*", "type_ads.id as type_ads_id")
+        $types = Type_ads::select("types.*", "type_ads.id as type_ads_id")
                        ->join("type_ads","type_ads.type_id","=","types.id")
                        ->where("advests_id",$advert->id)->paginate(2);
 

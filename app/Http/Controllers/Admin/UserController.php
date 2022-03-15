@@ -15,6 +15,10 @@ class UserController extends Controller
     public function list(Request $request){
         $pagination = User::orderBy("name");
 
+        if (isset($request->busca) && $request->busca != "") {
+            $pagination->orWhere("name","like","%$request->busca%");
+        }
+
         return view("admin.users.index", ["list"=>$pagination->paginate(3)]);
     }
 
