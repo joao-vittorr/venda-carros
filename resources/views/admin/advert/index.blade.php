@@ -62,7 +62,7 @@
                         <thead>
                           <tr>
                             @can('viewAny','App\Models\Advert')  
-                                <th scope="col">{{__("Edit")}}</th>
+                                <th scope="col">{{__("View")}}</th>
                             @endcan
                             <th scope="col">{{__("Title")}}</th>
                             <th scope="col">{{__("Brand")}}</th>
@@ -78,7 +78,7 @@
                                     @can('view',$item)  
                                     <td>
                                         <a href="{{route("advert.edit",$item)}}" class="btn btn-primary">
-                                            {{ __('Edit') }}
+                                            {{ __('View') }}
                                         </a>
                                     </td>
                                     @endcan

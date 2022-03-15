@@ -54,7 +54,18 @@
     "Car": "Modelo do Carro",
     "Data updated!": "Cadastro atualizado!",
     "Data saved!": "Salvo com sucesso!",
-    "Data deleted!": "Deletado com sucesso!"
+    "Data deleted!": "Deletado com sucesso!",
+    "View": "Visualizar",
+    "Title": "Título",
+    "Type": "Tipo",
+    "Brand": "Marca",
+    "Color": "Cor",
+    "Year of Manufacture": "Ano de Fabricação",
+    "Mileage": "Quilometragem",
+    "Price": "Preço",
+    "Photo": "Foto",
+    "Advertisement": "Anúncio",
+    "New Advertisement": "Novo Anúncio"
 }
    
 
