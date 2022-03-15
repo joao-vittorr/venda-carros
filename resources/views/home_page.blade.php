@@ -14,7 +14,7 @@
                             <h1 class="mb-5">VOROX MOTORS - ANUNCIE JÁ!</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB aaaaaaaForms Contact Form * *-->
+                            <!-- * * SB Forms Contact Form * *-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- This form is pre-integrated with SB Forms.-->
                             <!-- To make this form functional, sign up at-->
