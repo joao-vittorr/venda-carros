@@ -26,7 +26,7 @@
     "Confirm":"Confirmação",
     "Do you really want to delete this record?":"Deseja realmente excluir este registro?",
     "Owner":"Dono",
-    "Users":"Usuários",
+    "Panel Users":"Painel de Usuários",
     "Home":"Página Inicial",
     "Contact":"Contato",
     "About":"Sobre",
@@ -81,7 +81,12 @@
     "Level": "Nível de Acesso",
     "Select one option": "Selecione uma opção",
     "Select one year": "Selecione um ano",
-    "Multimedia": "Multimídia"
+    "Multimedia": "Multimídia",
+    "Phone": "Telefone",
+    "View register": "Visualizar Cadastro",
+    "Home screen": "Tela Inicial",
+    "Users": "Usuários",
+    "Publish": "Publicar"
 
 }   
    

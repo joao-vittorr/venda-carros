@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Users') }}</div>
+                <div class="card-header">{{ __('Panel Users') }}</div>
 
                 <div class="card-body">
 
@@ -193,15 +193,9 @@
                         </div>
 
 
-                        <ol>
-                            @foreach ($posts as $post)
-                                <li>
-                                    <a href='{{route('post.edit',$post)}}'>{{ $post->subject }}</a>
-                                </li>
-                            @endforeach
-                        </ol>
-
-                        {{ $posts->links() }}
+                        <div class="col-md-15 text-center">
+                            <a class="btn btn-primary" href="{{route("dashboard")}}" >{{__("Home screen")}}</a>
+                        </div>
                             
 
                     </form>

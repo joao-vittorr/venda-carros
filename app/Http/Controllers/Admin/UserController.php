@@ -45,7 +45,7 @@ class UserController extends Controller
     }*/
 
 
-    #abre o formulario de edição
+    
     public function edit(User $user){
 
         $posts = Post::where("user_id",$user->id)->paginate(5);
