@@ -38,7 +38,7 @@
                             <label for="cpf" class="col-md-4 col-form-label text-md-end">{{ __('CPF') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="cpf" class="form-control @error('cpf') is-invalid @enderror" name="cpf" disabled value="{{ old('cpf', $data->cpf) }}">
+                                <input id="cpf" type="cpf" class="form-control cpf @error('cpf') is-invalid @enderror" name="cpf" disabled value="{{ old('cpf', $data->cpf) }}">
 
                                 @error('cpf')
                                     <span class="invalid-feedback" role="alert">
@@ -52,7 +52,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" disabled value="{{ old('phone', $data->phone) }}" >
+                                <input id="phone" type="phone" class="form-control phone @error('phone') is-invalid @enderror" name="phone" disabled value="{{ old('phone', $data->phone) }}" >
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -82,7 +82,7 @@
                         
                             <div class="col-md-6">
                                 <input id="cep" type="text" 
-                                        class="form-control @error('cep') is-invalid @enderror" 
+                                        class="form-control cep @error('cep') is-invalid @enderror" 
                                         name="cep" value="{{ old('cep', $data->cep) }}" 
                                         disabled autofocus>
                         

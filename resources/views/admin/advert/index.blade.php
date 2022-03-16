@@ -61,14 +61,12 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            @can('viewAny','App\Models\Advert')  
-                                <th scope="col">{{__("View")}}</th>
-                            @endcan
+                            <th scope="col">{{__("")}}</th>
                             <th scope="col">{{__("Title")}}</th>
                             <th scope="col">{{__("Brand")}}</th>
                             <th scope="col">{{__("Ad Date")}}</th>
                             @can('deleteAny','App\Models\Advert')  
-                                <th scope="col">{{__("Delete")}}</th>
+                                <th scope="col">{{__("Proprietário")}}</th>
                             @endcan
                           </tr>
                         </thead>
