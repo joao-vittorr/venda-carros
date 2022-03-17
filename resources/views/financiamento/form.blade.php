@@ -10,14 +10,7 @@
                 <div class="card-body">
 
 
-                    @if (!$data->exists)
-                        <form id="main" method="POST" action="{{ route('advert.store') }}" enctype="multipart/form-data">
-                    @else
-                        <form id="main" method="POST" action="{{ route('advert.update',$data) }}" enctype="multipart/form-data">
-                        @method('PUT')
-                    @endif
 
-                        @csrf
 
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-end">
@@ -38,60 +31,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="type_id" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Type') }}
-                            </label>
-    
-                            <div class="col-md-6">
-                            <select class="form-select @error('type_id') is-invalid @enderror"
-                                    id="type_id"
-                                    name="type_id" >
-                                    <option value=''>{{__("Select one option")}}</option>
-                            
-                                @foreach($typesList as $typ)        
-                                    <option value='{{$typ->id}}'
-                                        @if (old('type_id', $data->type?->id) == $typ->id)
-                                            selected
-                                        @endif
-                                        >{{$typ->name}}</option>
-                                @endforeach
-                            </select>
 
-                            @error('type_id')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                            </div>
-
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-end">
-                                {{ __('Brand') }}
-                            </label>
-    
-                            <div class="col-md-6">
-                            <select class="form-select @error('category_id') is-invalid @enderror"
-                                    id="category_id"
-                                    name="category_id" >
-                                    <option value=''>{{__("Select one option")}}</option>
-                                @foreach($categoriesList as $cat)
-                                
-                                    <option value='{{$cat->id}}'
-                                        @if (old('brand_id',$data->category?->id) == $cat->id)
-                                            selected
-                                        @endif
-                                        >{{$cat->name}}</option>
-                                @endforeach
-                            </select>
-                            
-                            
-                            </div>
-                            
-
-                        </div>
 
                         <div class="row mb-3">
                             <label for="model" class="col-md-4 col-form-label text-md-end">
@@ -277,38 +217,24 @@
                                 @enderror
                             </div>
                         </div>
-                    </form>
+  
+
+                        <form id="main" method="POST" action="{{ route('financiamento.calcular', $data) }}" enctype="multipart/form-data">
+
+                        @csrf
+
+                        Valor da entrada: <input name="valorEntrada" type="text"><br>
+                        Número de parcela: <input name="quantidadeParcela" type="text"><br>    
+                        
+                        </form> 
+
 
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                @can('update',$data)
                                     <button type="submit" id="btn-save" class="btn btn-primary" form="main">
-                                        {{ __('Publish') }}
+                                        {{ __('Calcular') }}
                                     </button>
-                                @endcan
-
-                                @can('create','App\\Models\Advert')
-                                <a class='btn btn-secondary' href="{{route('advert.create')}}">
-                                    {{__('New Advertisement')}}
-                                </a>
-                                @endcan
-
-
-                                                                
-                                @can ('delete',$data)
-                                <form name='delete' action="{{route('advert.destroy',$data)}}"
-                                    method="post"
-                                    style='display: inline-block;'>
-                                    @csrf
-                                    @method("DELETE")
-                                    <button type="button" onclick="confirmDeleteModal(this)" class="btn btn-danger">
-                                        {{ __('Delete') }}
-                                    </button>
-                                </form>
-                                @endcan
-
-                                
                             </div>
                         </div>
                     
