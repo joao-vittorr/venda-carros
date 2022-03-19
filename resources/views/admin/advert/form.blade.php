@@ -293,9 +293,11 @@
                                     {{__('New Advertisement')}}
                                 </a>
                                 @endcan
+                                
+                                
+                                <a class='btn btn-primary' href="financiamento"> Financiamento </a>
 
 
-                                                                
                                 @can ('delete',$data)
                                 <form name='delete' action="{{route('advert.destroy',$data)}}"
                                     method="post"

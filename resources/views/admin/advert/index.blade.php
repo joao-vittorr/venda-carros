@@ -59,42 +59,41 @@
 
 
                     <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">{{__("")}}</th>
-                            <th scope="col">{{__("Title")}}</th>
-                            <th scope="col">{{__("Brand")}}</th>
-                            <th scope="col">{{__("Ad Date")}}</th>
-                            @can('deleteAny','App\Models\Advert')  
-                                <th scope="col">{{__("Proprietário")}}</th>
-                            @endcan
-                          </tr>
-                        </thead>
                         <tbody>
                             @foreach ($list as $item)
                                 <tr>
-                                    @can('view',$item)  
                                     <td>
-                                        <a href="{{route("advert.edit",$item)}}" class="btn btn-primary">
-                                            {{ __('View') }}
-                                        </a>
+                                    <div class="card mb-3" style="max-width: 100%;">
+                                        <div class="row g-0">
+                                          <div class="col-md-4">
+                                            <img src="{{asset($item->photo)}}" class="img-fluid rounded-start" alt="...">
+                                          </div>
+                                          <div class="col-md-8">
+                                            <div class="card-body">
+                                              <h5 class="card-title">{{$item->title}}</h5>
+                                              <p class="card-text">{{$item->category->name}}</p>
+                                              <p class="card-text">{{$item->description}}</p>
+                                              <p class="card-text"><small class="text-muted">{{$item->created_at}}</small></p>
+                                                    @can('view',$item)  
+                                                    <a href="{{route("advert.edit",$item)}}" class="btn btn-primary">
+                                                        {{ __('View') }}
+                                                    </a>
+                                                    @endcan
+                                                    @can('delete',$item)  
+                                                        <form action="{{route('advert.destroy',$item)}}" method="post">
+                                                            @csrf
+                                                            @method("DELETE")
+                                                            <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)"  >
+                                                                {{ __('Delete') }}
+                                                            </button>
+                                                        </form>
+                                                    @endcan
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </td>
-                                    @endcan
-                                    <td>{{$item->title}}</td>    
-                                    <td>{{$item->category->name}}</td>
-                                    <td>{{$item->created_at}}</td>     
-                                    <td>{{$item->user->name}}</td> 
-                                    @can('delete',$item)  
-                                    <td>
-                                        <form action="{{route('advert.destroy',$item)}}" method="post">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)"  >
-                                                {{ __('Delete') }}
-                                            </button>
-                                        </form>
-                                    </td>
-                                    @endcan
+
                                 </tr>
                             @endforeach
 
