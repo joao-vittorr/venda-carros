@@ -35,8 +35,6 @@ class PostController extends Controller
         if (isset($request->publish_date) && $request->publish_date != "")
             $pagination->whereDate("publish_date",$request->publish_date);
 
-        #$pagination->dd();
-        #$pagination->dump();
         return view("admin.posts.index", ["list"=>$pagination->paginate(3)]);
     }
 

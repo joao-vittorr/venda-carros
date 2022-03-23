@@ -20,27 +20,6 @@
                             </div>
                         </div>
 
-
-                        <div class="row mb-3">
-                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
-                            <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" 
-                                         name="title" value="{{ old('title') }}" 
-                                         autofocus>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="brand" class="col-md-4 col-form-label text-md-end">{{ __('Brand') }}</label>
-                            <div class="col-md-6">
-                                <input id="brand" type="text" class="form-control" 
-                                         name="brand" value="{{ old('brand') }}" 
-                                         autofocus>
-                            </div>
-                        </div>
-
-
-
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -63,7 +42,7 @@
                             @foreach ($list as $item)
                                 <tr>
                                     <td>
-                                    <div class="card mb-3" style="max-width: 100%;">
+                                     <div class="card mb-3" style="max-width: 100%;">
                                         <div class="row g-0">
                                           <div class="col-md-4">
                                             <img src="{{asset($item->photo)}}" class="img-fluid rounded-start" alt="...">
@@ -71,7 +50,8 @@
                                           <div class="col-md-8">
                                             <div class="card-body">
                                               <h5 class="card-title">{{$item->title}}</h5>
-                                              <p class="card-text">{{$item->user->name}}</p>
+                                              <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red">{{$item->price}}</span></h5>
+                                              <p class="card-text">Vendedor: {{$item->user->name}}</p>
                                               <p class="card-text">{{$item->description}}</p>
                                               <p class="card-text"><small class="text-muted">{{$item->created_at}}</small></p>
                                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -96,7 +76,6 @@
                                           </div>
                                         </div>
                                       </div>
-                                    </td>
 
                                 </tr>
                             @endforeach

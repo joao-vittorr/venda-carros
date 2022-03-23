@@ -204,7 +204,7 @@
 
                             <div class="col-md-6">
                                 <input id="mileage" type="text" 
-                                    class="form-control @error('mileage') is-invalid @enderror" 
+                                    class="form-control mileage @error('mileage') is-invalid @enderror" 
                                     name="mileage" value="{{ old('mileage', $data->mileage) }}"  
                                     autofocus>
 
@@ -294,8 +294,8 @@
                                 </a>
                                 @endcan
                                 
-                                
-                                <a class='btn btn-primary' href="financiamento"> Financiamento </a>
+                                <input type="hidden" id="{{$data->id}}" value="{{$data->id}}">
+                                <a class='btn btn-primary' href="{{route('financiamento')}}"> Financiamento </a>
 
 
                                 @can ('delete',$data)

@@ -25,36 +25,11 @@ class AdvertController extends Controller
         $pagination = Advert::orderBy("title");
 
         if (isset($request->busca) && $request->busca != "") {
-            $pagination->orWhere("name","like","%$request->busca%");
-            $pagination->orWhere("text","like","%$request->busca%");
+            $pagination->orWhere("title","like","%$request->busca%");
+            $pagination->orwhere("model","like","%$request->busca%");
+            $pagination->orwhere("manuf_year","like","%$request->busca%");
+            $pagination->orwhere("mileage","like","%$request->busca%");
         }
-
-        if (isset($request->type) && $request->type != "")
-            $pagination->where("type","like","%$request->type%");
-        
-        if (isset($request->category) && $request->category != "")
-            $pagination->where("category","like","%$request->category%");
-
-        if (isset($request->model) && $request->model != "")
-            $pagination->where("model","like","%$request->model%");
-
-        if (isset($request->color) && $request->color != "")
-            $pagination->where("color","like","%$request->color%");
-
-        if (isset($request->mult) && $request->mult != "")
-            $pagination->where("mult","like","%$request->mult%");
-
-        if (isset($request->manuf_year) && $request->manuf_year != "")
-            $pagination->where("manuf_year","like","%$request->manuf_year%");
-
-        if (isset($request->description) && $request->description != "")
-            $pagination->where("description","like","%$request->description%");
-
-        if (isset($request->mileage) && $request->mileage != "")
-            $pagination->where("mileage",$request->mileage);
-
-        if (isset($request->price) && $request->price != "")
-            $pagination->where("price",$request->price);
 
 
         return view("admin.advert.index", ["list"=>$pagination->paginate(3)]);

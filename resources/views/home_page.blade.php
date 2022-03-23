@@ -20,14 +20,18 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form class="form-subscribe" id="search" data-sb-form-api-token="API_TOKEN"  method="POST">
+                            <form method="GET" action="{{ route('search.list') }}">
+                                @csrf
                                 <!-- Email address input-->
                                 <div class="row">
                                     <div class="col">
-                                        <input class="form-control form-control-lg" id="search" type="text" placeholder="Digite o veículo que está buscando" />
+                                        <input class="form-control form-control-lg" id="busca" type="text" class="form-control" 
+                                        name="busca" value="{{ old('busca') }}" 
+                                        autofocus placeholder="Digite o veículo que está buscando" />
                                     </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">Pesquisar</button></div>
+                                    <div class="col-auto"><button class="btn btn-primary btn-lg " id="submitButton" type="submit">{{ __('Search') }}</button></div>
                                 </div>
+
                                 <!-- Submit success message-->
                                 <!---->
                                 <!-- This is what your users will see when the form-->

@@ -39,8 +39,7 @@ class FinanciamentoController extends Controller
     }
 
     public function index(){
-        $advert = $advert->id;
-
+        $advert = Advert::first();
         return view("financiamento.form", ["data"=>$advert] );
     }
 

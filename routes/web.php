@@ -31,6 +31,8 @@ Route::get('/post1', [App\Http\Controllers\PostController1::class,"index"])->nam
 Route::get('/post2', [App\Http\Controllers\PostController2::class,"index"])->name('post2');
 Route::get('/post3', [App\Http\Controllers\PostController3::class,"index"])->name('post3');
 Route::get('/post4', [App\Http\Controllers\PostController4::class,"index"])->name('post4');
+Route::get('/search', [App\Http\Controllers\SearchController::class,"index"])->name('search');
+Route::get('/search/list', [App\Http\Controllers\SearchController::class,"list"])->name('search.list');
 Route::get('/financiamento', [FinanciamentoController::class,"index"])->name('financiamento');
 Route::post('/financiamento/{advert}', [App\Http\Controllers\FinanciamentoController::class,"calcular"])->name('financiamento.calcular');
 

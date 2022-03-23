@@ -10,15 +10,13 @@ class Financiamento
 {
 
     public static function calcular($valorEntrada, $parcela, $valorVei){
-
+        
         $resultado = ($valorEntrada*100)/$valorVei;
         if( !empty($resultado) ) {
             if($resultado >= 0 && $resultado <= 0.20) {
             if($parcela >= 0 && $parcela <= 20) {
                 $valorVei = $valorVei -$valorEntrada;
                 $c = ($valorVei/$parcela);
-        dd($c);
-
                 $d = $c * 2.35;
                 $number = $d;
                 $number = number_format($number, 2, '.', '');}
