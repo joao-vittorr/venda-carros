@@ -30,16 +30,15 @@ class FinanciamentoController extends Controller
 
         $arr = $request->all();
         $arr['valorEntrada'] = str_replace([".",","],["","."],$arr['valorEntrada']);
+        
 
         $this->validator($arr);
         
         $resultado = Financiamento::calcular($arr['valorEntrada'], $arr['quantidadeParcela'], $advert->price);
-        
-        dd($resultado);   
+         
     }
 
-    public function index(){
-        $advert = Advert::first();
+    public function index(Advert $advert){
         return view("financiamento.form", ["data"=>$advert] );
     }
 

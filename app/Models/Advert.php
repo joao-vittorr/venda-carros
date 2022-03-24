@@ -26,6 +26,11 @@ protected $fillable = [
     "type_id"
 ];
 
+public function setPriceAttribute($valor){
+    $this->attributes['price']=str_replace([".",","],["","."],$valor);
+
+}
+
 public function user(){
     return $this->belongsTo(User::class);
 }
@@ -38,3 +43,4 @@ public function category(){
     return $this->belongsTo(Category::class);
 }
 }
+

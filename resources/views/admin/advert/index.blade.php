@@ -55,13 +55,13 @@
                                               <p class="card-text">{{$item->description}}</p>
                                               <p class="card-text"><small class="text-muted">{{$item->created_at}}</small></p>
                                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                @can('view',$item) 
-                                                <a href="{{route("advert.edit",$item)}}">
+
+                                                <a href="{{route("financiamento",$item)}}">
                                                     <button class="btn btn-primary me-md-2" type="button"> 
                                                         {{ __('View') }}
                                                     </button>
                                                 </a>
-                                                @endcan
+
                                                 @can('delete',$item)  
                                                     <form action="{{route('advert.destroy',$item)}}" method="post">
                                                         @csrf

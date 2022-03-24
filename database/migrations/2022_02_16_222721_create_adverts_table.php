@@ -19,10 +19,10 @@ class CreateAdvertsTable extends Migration
             $table->string("title",250);
             $table->string("model",250);
             $table->string("color",250);
-            $table->string("mult",250);
-            $table->string("manuf_year",250);
-            $table->string("mileage",250);
-            $table->string("price",250);
+            $table->boolean("mult");
+            $table->integer("manuf_year");
+            $table->integer("mileage");
+            $table->float("price");
             $table->string("photo",500);
             $table->text("description");
             $table->foreignId("user_id")->constrained();

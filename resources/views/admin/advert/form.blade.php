@@ -294,9 +294,9 @@
                                 </a>
                                 @endcan
                                 
-                                <input type="hidden" id="{{$data->id}}" value="{{$data->id}}">
-                                <a class='btn btn-primary' href="{{route('financiamento')}}"> Financiamento </a>
-
+                                @if ($data->exists)
+                                    <a class='btn btn-primary' href="{{route('financiamento', $data)}}"> Financiamento </a>
+                                @endif
 
                                 @can ('delete',$data)
                                 <form name='delete' action="{{route('advert.destroy',$data)}}"

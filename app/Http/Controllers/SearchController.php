@@ -18,7 +18,14 @@ class SearchController extends Controller
         $pagination->orwhere("model","like","%$request->busca%");
         $pagination->orwhere("manuf_year","like","%$request->busca%");
         $pagination->orwhere("mileage","like","%$request->busca%");
+        $pagination->orwhere("categories.name","like","%$request->busca%");
+        $pagination->orwhere("types.name","like","%$request->busca%");
+
+        $pagination->join('categories', 'categories.id', '=', 'adverts.category_id');
+        $pagination->join('types', 'types.id', '=', 'adverts.type_id');
     }
+
+    #$pagination->dd();
 
 
     return view("admin.advert.index", ["list"=>$pagination->paginate(3)]);

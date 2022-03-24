@@ -33,8 +33,9 @@ Route::get('/post3', [App\Http\Controllers\PostController3::class,"index"])->nam
 Route::get('/post4', [App\Http\Controllers\PostController4::class,"index"])->name('post4');
 Route::get('/search', [App\Http\Controllers\SearchController::class,"index"])->name('search');
 Route::get('/search/list', [App\Http\Controllers\SearchController::class,"list"])->name('search.list');
-Route::get('/financiamento', [FinanciamentoController::class,"index"])->name('financiamento');
+Route::get('/financiamento/{advert}', [FinanciamentoController::class,"index"])->name('financiamento');
 Route::post('/financiamento/{advert}', [App\Http\Controllers\FinanciamentoController::class,"calcular"])->name('financiamento.calcular');
+#Route::get('/anuncio/{advert}', [AdvertController::class,"edit"])->name('anuncio');
 
 Auth::routes();
 
