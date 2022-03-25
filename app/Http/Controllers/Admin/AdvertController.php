@@ -30,9 +30,6 @@ class AdvertController extends Controller
             $pagination->orwhere("manuf_year","like","%$request->busca%");
             $pagination->orwhere("mileage","like","%$request->busca%");
         }
-        $pagination->orwhere("categories.name","like","%$request->busca%");
-
-        $pagination->dd();
 
 
         return view("admin.advert.index", ["list"=>$pagination->paginate(3)]);
