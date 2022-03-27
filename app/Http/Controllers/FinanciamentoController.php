@@ -36,7 +36,7 @@ class FinanciamentoController extends Controller
         
         $resultado = Financiamento::calcular($arr['valorEntrada'], $arr['quantidadeParcela'], $advert->price);
 
-        return redirect()->withInput($resultado);
+        return redirect(["resultado"=>$resultado]);
     }
 
     public function index(Advert $advert){

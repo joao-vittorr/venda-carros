@@ -23,8 +23,8 @@ class Financiamento
                     $c = ($valorVei/$parcela);
                     $d = $c * 2.35;
                     $resultadoFinanciamento = $d;
-                    $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
-                    echo "O resultado da operação é: $resultadoFinanciamento";                }
+                    $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');              
+                }
                 else if($parcela >= 21 && $parcela <= 40)
                 {
                     $valorVei = $valorVei -$valorEntrada;
@@ -41,6 +41,9 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                $resultadoTotal = $resultadoFinanciamento*$parcela;
+                print "O valor da parcela é de: $resultadoFinanciamento";
+                print "\n\nO valor total do financiamento é de: $resultadoTotal  ";
             }
 
 
@@ -69,6 +72,9 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                $resultadoTotal = $resultadoFinanciamento*$parcela;
+                print "O valor da parcela é de: $resultadoFinanciamento";
+                print "\n\nO valor total do financiamento é de: $resultadoTotal  "; 
             }
 
 
@@ -98,6 +104,9 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                $resultadoTotal = $resultadoFinanciamento*$parcela;
+                print "O valor da parcela é de: $resultadoFinanciamento";
+                print "\n\nO valor total do financiamento é de: $resultadoTotal  "; 
             }
 
 
@@ -127,7 +136,10 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
-                }
+                $resultadoTotal = $resultadoFinanciamento*$parcela;
+                print "O valor da parcela é de: $resultadoFinanciamento";
+                print "\n\nO valor total do financiamento é de: $resultadoTotal  "; 
+            }
 
 
             else if($resultado >= 81 && $resultado <= 90)
@@ -156,6 +168,9 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                $resultadoTotal = $resultadoFinanciamento*$parcela;
+                print "O valor da parcela é de: $resultadoFinanciamento";
+                print "\n\nO valor total do financiamento é de: $resultadoTotal  "; 
             }
             
             
@@ -185,6 +200,9 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                $resultadoTotal = $resultadoFinanciamento*$parcela;
+                print "O valor da parcela é de: $resultadoFinanciamento";
+                print "\n\nO valor total do financiamento é de: $resultadoTotal  "; 
             }
             return $resultadoFinanciamento;
         }

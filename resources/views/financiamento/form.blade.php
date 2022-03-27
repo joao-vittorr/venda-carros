@@ -43,22 +43,14 @@
                         
 
                         <div class="input-group-append">
-                            <button type="submit" id="btn-save" class="btn btn-primary" form="main">
+                            <button type="submit"  class="btn btn-primary">
                                 {{ __('Calcular') }}
                             </button>
                         </div>
                     </form> 
 
-                   
-                    @if ($resultado->has('resultado'))
-                    <p>O valor antigo do campo username é {{ 'resultado' }}.</p>
-                    @endif      
 
-                     {{--@if ($resultado->exists)
-                        <div class="input-group mb-3">
-                            <label>Valor Parcela: {{ $resultado }}</label>
-                         </div>
-                     @endif--}}
+    
                       
 
                 </div>

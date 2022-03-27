@@ -39,6 +39,7 @@
                     <table class="table">
                     <h1 class="container-fluid">{{ __('Advertisement') }}</h1>
                         <tbody>
+                            
                             @foreach ($list as $item)
                                 <tr>
                                     <td>
@@ -50,13 +51,15 @@
                                           <div class="col-md-8">
                                             <div class="card-body">
                                               <h5 class="card-title">{{$item->title}}</h5>
-                                              <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red">{{$item->price}}</span></h5>
+                                              <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red" class="price">{{$item->price}}</span></h5>
                                               <p class="card-text">Vendedor: {{$item->user->name}}</p>
                                               <p class="card-text">{{$item->description}}</p>
-                                              <p class="card-text"><small class="text-muted">{{$item->created_at}}</small></p>
+                                              <p class="card-text"><small class="text-muted">{{$item->created_at->format('d/m/Y')}}</small></p>
+                                              <p class="card-text">ID {{$item->id}}</p>
+                                              
                                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
-                                                <a href="{{route("financiamento",$item)}}">
+                                             
+                                                <a href="{{route("advert.edit", $item)}}">
                                                     <button class="btn btn-primary me-md-2" type="button"> 
                                                         {{ __('View') }}
                                                     </button>
