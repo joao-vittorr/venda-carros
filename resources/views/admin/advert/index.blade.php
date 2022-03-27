@@ -72,7 +72,7 @@
                                                     </form>   
                                                     <a href="{{route("anuncio",$item)}}">
                                                         <button class="btn btn-primary me-md-2" type="button"> 
-                                                            {{ __('View') }}
+                                                            {{ __('Edit') }}
                                                         </button>
                                                     </a>
                                                 @endcan
