@@ -35,7 +35,8 @@ class FinanciamentoController extends Controller
         $this->validator($arr);
         
         $resultado = Financiamento::calcular($arr['valorEntrada'], $arr['quantidadeParcela'], $advert->price);
-         
+
+        return redirect()->withInput($resultado);
     }
 
     public function index(Advert $advert){

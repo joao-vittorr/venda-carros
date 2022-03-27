@@ -40,12 +40,27 @@
                         <div class="input-group mb-3">
                                <label>Número de parcela: <input name="quantidadeParcela" type="text" placeholder="Max: 60" class="form-control" aria-describedby="basic-addon2"></label>
                         </div>
+                        
+
                         <div class="input-group-append">
                             <button type="submit" id="btn-save" class="btn btn-primary" form="main">
                                 {{ __('Calcular') }}
                             </button>
                         </div>
                     </form> 
+
+                   
+                    @if ($resultado->has('resultado'))
+                    <p>O valor antigo do campo username é {{ 'resultado' }}.</p>
+                    @endif      
+
+                     {{--@if ($resultado->exists)
+                        <div class="input-group mb-3">
+                            <label>Valor Parcela: {{ $resultado }}</label>
+                         </div>
+                     @endif--}}
+                      
+
                 </div>
             </div>
         </div>

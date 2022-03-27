@@ -45,10 +45,7 @@ class TypeController extends Controller
         $typ = Type::create($validated);
 
         
-        #vinculação com post
-        //$post = Post::find($request["post_id"]);
-        //CategoryPost::updateOrCreate(["post_id"=>$post->id,"category_id"=>$cat->id]);
-    
+       
 
         return redirect(route("type.edit", $typ))->with("success",__("Data saved!"));
     }
@@ -64,7 +61,7 @@ class TypeController extends Controller
     }
 
 
-    #abre o formulario de edição
+   
     public function edit(Type $type){
         $typeList = Type::all();
 
@@ -76,16 +73,13 @@ class TypeController extends Controller
         return view("admin.type.form",["data"=>$type, "typeList"=>$typeList, "types"=>$types]);
     }
     
-    #salva as edições
+   
     public function update(Type $type, Request $request) {
         $validated = $this->validator($request->all());
         $type->update($validated);
 
 
-        //$post = Post::find($request["post_id"]);
-        #na documentação consta esse método
-        #funciona, mas não insere os timestamps
-        #$category->posts()->attach($post);
+        
         TypePost::updated(["name"=>$type->name]);
     
 
