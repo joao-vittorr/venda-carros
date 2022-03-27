@@ -41,19 +41,12 @@
                                <label>Número de parcela: <input name="quantidadeParcela" type="text" placeholder="Max: 60" class="form-control" aria-describedby="basic-addon2"></label>
                         </div>
                         <div class="input-group-append">
-                            <button type="submit" id="btn-save" class="btn btn-primary" form="main">
+                            <button type="submit"  class="btn btn-primary">
                                 {{ __('Calcular') }}
                             </button>
                         </div>
                     </form> 
-
-                    <form id="main" method="POST" action="{{ route('financiamento.calcular', $data) }}" enctype="multipart/form-data">
-
-                        @csrf
-
-                        <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red">{{$data->resultado}}</span></h5>
-
-                    </form> 
+                    
                 </div>
             </div>
         </div>
