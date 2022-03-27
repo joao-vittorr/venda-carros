@@ -41,12 +41,11 @@
                                <label>Número de parcela: <input name="quantidadeParcela" type="text" placeholder="Max: 60" class="form-control" aria-describedby="basic-addon2"></label>
                         </div>
                         <div class="input-group-append">
-                            <button type="submit"  class="btn btn-primary">
+                            <button type="submit" id="btn-save" class="btn btn-primary" form="main">
                                 {{ __('Calcular') }}
                             </button>
                         </div>
                     </form> 
-                    
                 </div>
             </div>
         </div>

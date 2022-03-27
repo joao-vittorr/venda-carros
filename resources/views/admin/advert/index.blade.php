@@ -69,7 +69,12 @@
                                                                 <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)" >
                                                                     {{ __('Delete') }}
                                                                 </button>
-                                                    </form>
+                                                    </form>   
+                                                    <a href="{{route("anuncio",$item)}}">
+                                                        <button class="btn btn-primary me-md-2" type="button"> 
+                                                            {{ __('View') }}
+                                                        </button>
+                                                    </a>
                                                 @endcan
                                               </div>
                                             </div>
