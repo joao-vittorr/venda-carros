@@ -24,7 +24,7 @@ class Financiamento
                     $d = $c * 2.35;
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
-                    echo "O resultado da operação é: $resultadoFinanciamento";                }
+                }
                 else if($parcela >= 21 && $parcela <= 40)
                 {
                     $valorVei = $valorVei -$valorEntrada;
@@ -41,6 +41,7 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                echo "O resultado da operação é: $resultadoFinanciamento";
             }
 
 
@@ -69,6 +70,7 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                echo "O resultado da operação é: $resultadoFinanciamento";
             }
 
 
@@ -98,6 +100,7 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                echo "O resultado da operação é: $resultadoFinanciamento";
             }
 
 
@@ -127,7 +130,8 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
-                }
+                echo "O resultado da operação é: $resultadoFinanciamento";
+            }
 
 
             else if($resultado >= 81 && $resultado <= 90)
@@ -156,6 +160,7 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                echo "O resultado da operação é: $resultadoFinanciamento";
             }
             
             
@@ -185,6 +190,7 @@ class Financiamento
                     $resultadoFinanciamento = $d;
                     $resultadoFinanciamento = number_format($resultadoFinanciamento, 2, '.', '');
                 }
+                echo "O resultado da operação é: $resultadoFinanciamento";
             }
             return $resultadoFinanciamento;
         }

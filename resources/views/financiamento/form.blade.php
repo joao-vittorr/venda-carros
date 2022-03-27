@@ -46,6 +46,14 @@
                             </button>
                         </div>
                     </form> 
+
+                    <form id="main" method="POST" action="{{ route('financiamento.calcular', $data) }}" enctype="multipart/form-data">
+
+                        @csrf
+
+                        <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red">{{$data->resultado}}</span></h5>
+
+                    </form> 
                 </div>
             </div>
         </div>
