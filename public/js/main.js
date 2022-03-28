@@ -1,10 +1,10 @@
 $(function(){
 
     $(".phone").mask("(00)00000-0000");
-    $('.price').mask('000.000.000.000.000,00', {reverse: true});
+    $('.price').mask('000.000.000,00', {reverse: true});
     $(".cpf").mask("000.000.000-00");
     $('.cep').mask('00000-000');
-
+    $('.mileage').mask('000.000.000', {reverse: true});
 
 
     $('.cep').on('keyup',function(a){

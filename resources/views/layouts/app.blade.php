@@ -58,6 +58,13 @@
                             
                             @can('viewAny', App\Models\Advert::class)
                             <li class="nav-item">
+                              <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Home') }}</a>
+                            </li>
+                            @endcan
+
+
+                            @can('viewAny', App\Models\Advert::class)
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('advert.list') }}">{{ __('Advertisement') }}</a>
                             </li>
                             @endcan

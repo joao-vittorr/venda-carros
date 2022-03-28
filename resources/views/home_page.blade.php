@@ -61,33 +61,38 @@
         </div>
         <section class="features-icons bg-light text-center">
             <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3" style="width: 22rem;">
-                        <img src="{{asset('clean-blog/assets/img/honda-civic.png')}}" class="card-img-top" alt="Honda Civic">
-                        <div class="card-body">
-                            <h3>Honda Civic</h3>
-                        </div>
+                <div class="card-deck">
+                    <div class="card">
+                      <img class="card-img-top" src="..." alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                       </div>
-                    <div class="col-lg-3" style="width: 21rem;">
-                        <img src="{{asset('clean-blog/assets/img/toyota-corola.png')}}" class="card-img-top" alt="Toyota Corola">
-                        <div class="card-body">
-                            <h3>Toyota Corola</h3>
-                        </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
                     </div>
-                    <div class="col-lg-3" style="width: 20rem;">
-                        <img src="{{asset('clean-blog/assets/img/vw-golf.png')}}" class="card-img-top" alt="Volkswagen Golf">
-                        <div class="card-body">
-                            <h3>Volkswagen Golf</h3>
-                        </div>
+                    <div class="card">
+                      <img class="card-img-top" src="..." alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
                     </div>
-                    <div class="col-lg-3" style="width: 18rem;">
-                        <img src="{{asset('clean-blog/assets/img/cg-125.png')}}" class="card-img-top" alt="Honda Cg 125">
-                        <div class="card-body">
-                            <h3>Honda Cg 125</h3>
-                        </div>
+                    <div class="card">
+                      <img class="card-img-top" src="..." alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
                     </div>
-                </div>
+                  </div>
             </div>
         </section>
         

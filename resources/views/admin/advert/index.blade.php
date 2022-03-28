@@ -59,7 +59,7 @@
                                               
                                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                              
-                                                <a href="{{route("advert.edit", $item)}}">
+                                                <a href="{{route("financiamento", $item)}}">
                                                     <button class="btn btn-primary me-md-2" type="button"> 
                                                         {{ __('View') }}
                                                     </button>
@@ -72,7 +72,12 @@
                                                                 <button class="btn btn-danger" type="button" onclick="confirmDeleteModal(this)" >
                                                                     {{ __('Delete') }}
                                                                 </button>
-                                                    </form>
+                                                    </form>   
+                                                    <a href="{{route("anuncio",$item)}}">
+                                                        <button class="btn btn-primary me-md-2" type="button"> 
+                                                            {{ __('Edit') }}
+                                                        </button>
+                                                    </a>
                                                 @endcan
                                               </div>
                                             </div>

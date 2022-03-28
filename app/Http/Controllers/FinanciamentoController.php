@@ -15,8 +15,7 @@ class FinanciamentoController extends Controller
 {
     
     public function validator(array $data){
-        #|1500,50
-        
+            
         $rules = [
             'valorEntrada' => 'required| numeric',
             'quantidadeParcela' => 'required| numeric',
@@ -35,12 +34,12 @@ class FinanciamentoController extends Controller
         $this->validator($arr);
         
         $resultado = Financiamento::calcular($arr['valorEntrada'], $arr['quantidadeParcela'], $advert->price);
-
-        return redirect(["resultado"=>$resultado]);
+    
+        return view("financiamento.form", ['data' => $advert, 'res' => $resultado]);
     }
 
     public function index(Advert $advert){
-        return view("financiamento.form", ["data"=>$advert] );
+        return view("financiamento.form", ['data'=>$advert] );
     }
 
 

@@ -27,7 +27,7 @@ protected $fillable = [
 ];
 
 public function setPriceAttribute($valor){
-    $this->attributes['price']=str_replace([".",","],["","."],$valor);
+    $this->attributes['price']=str_replace([".",","],["","."], $valor);
 
 }
 

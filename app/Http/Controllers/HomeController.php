@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advert;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,13 +17,16 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
+     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('home');
+
+        $pagination = Advert::orderBy("title");
+
+        return view('home', ["list"=>$pagination->paginate(2)]);
     }
 }

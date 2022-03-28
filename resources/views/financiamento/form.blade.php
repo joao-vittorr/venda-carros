@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Advertisement') }}</div>
+                <div class="card-header text-center">{{ __('Advertisement') }}</div>
 
                 <div class="card-body">
 
@@ -17,10 +17,10 @@
                           <div class="col-md-8">
                             <div class="card-body">
                               <h5 class="card-title">{{$data->model}}</h5>
-                              <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red">{{$data->price}}</span></h5>
+                              <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red" class="price">{{$data->price}}</span></h5>
                               <p class="card-text">{{ __('Type')}}: {{$data->type->name}} </p>
                               <p class="card-text">{{$data->description}}</p>
-                              <p class="card-text"><small class="text-muted">{{$data->created_at}}</small></p>
+                              <p class="card-text"><small class="text-muted">{{ __('Ad Date')}}: {{$data->created_at->format('d/m/Y')}}</small></p>
                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                               </div>
                             </div>
@@ -34,7 +34,7 @@
                         @csrf
                         
                         <div class="input-group mb-3">
-                            <label>Valor da entrada: <input name="valorEntrada" type="text" class="form-control" aria-describedby="basic-addon1"></label>
+                            <label>Valor da entrada: <input name="valorEntrada" type="text" class="form-control price" aria-describedby="basic-addon1"></label>
                         </div>
                         
                         <div class="input-group mb-3">
@@ -43,13 +43,20 @@
                         
 
                         <div class="input-group-append">
-                            <button type="submit"  class="btn btn-primary">
+                            <button type="submit" id="btn-save" class="btn btn-primary" form="main">
                                 {{ __('Calcular') }}
                             </button>
                         </div>
                     </form> 
 
+            
 
+                    @if (isset($res))
+                    <div class="input-group mb-3">
+                        <label >Valor da parcela: <span class="price"> R$ {{ $res }}</span> </label>
+                    </div>
+                    @endif
+                   
     
                       
 

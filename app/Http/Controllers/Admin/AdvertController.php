@@ -65,7 +65,7 @@ class AdvertController extends Controller
     public function destroy(Advert $advert){
         //Gate::authorize('delete', $advert);
         $advert->delete();
-        return redirect(route("advert.list"))->with("success",__("Data deleted!"));
+        return redirect()->back()->with("success",__("Data deleted!"));
     }
 
 
