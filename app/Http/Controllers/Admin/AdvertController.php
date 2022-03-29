@@ -20,15 +20,21 @@ class AdvertController extends Controller
 {
         
     public function list(Request $request){
-        //Gate::authorize('viewAny', Advert::class);
+        Gate::authorize('viewAny', Advert::class);
         
         $pagination = Advert::orderBy("title");
 
         if (isset($request->busca) && $request->busca != "") {
-            $pagination->orWhere("title","like","%$request->busca%");
-            $pagination->orwhere("model","like","%$request->busca%");
-            $pagination->orwhere("manuf_year","like","%$request->busca%");
-            $pagination->orwhere("mileage","like","%$request->busca%");
+        $pagination->orWhere("title","like","%$request->busca%");
+        $pagination->orwhere("model","like","%$request->busca%");
+        $pagination->orwhere("manuf_year","like","%$request->busca%");
+        $pagination->orwhere("mileage","like","%$request->busca%");
+        $pagination->orwhere("color","like","%$request->busca%");
+        $pagination->orwhere("categories.name","like","%$request->busca%");
+        $pagination->orwhere("types.name","like","%$request->busca%");
+
+        $pagination->join('categories', 'categories.id', '=', 'adverts.category_id');
+        $pagination->join('types', 'types.id', '=', 'adverts.type_id');
         }
 
 
@@ -36,7 +42,7 @@ class AdvertController extends Controller
     }
 
     public function create(){
-        //Gate::authorize('create', Advert::class);
+        Gate::authorize('create', Advert::class);
         $categoriesList = Category::all();
         $typesList = Type::all();
         return view("admin.advert.form", ["data"=>new Advert(),
@@ -45,7 +51,7 @@ class AdvertController extends Controller
 
     public function store(AdvertRequest $request){
         
-        //Gate::authorize('create', Advert::class);
+        Gate::authorize('create', Advert::class);
         $validated = $request->validated();
 
         $path = $request->file('photo')->store('advert',"public");
@@ -63,7 +69,7 @@ class AdvertController extends Controller
 
 
     public function destroy(Advert $advert){
-        //Gate::authorize('delete', $advert);
+        Gate::authorize('delete', $advert);
         $advert->delete();
         return redirect()->back()->with("success",__("Data deleted!"));
     }
@@ -71,7 +77,7 @@ class AdvertController extends Controller
 
    
     public function edit(Advert $advert){
-        //Gate::authorize('view', $advert);
+        Gate::authorize('view', $advert);
         $categoriesList = Category::all();
         $typesList = Type::all();
 
@@ -96,11 +102,11 @@ class AdvertController extends Controller
 
    
     public function update(Advert $advert, AdvertRequest $request) {
-        //Gate::authorize('update', $advert);
+        Gate::authorize('update', $advert);
         $validated = $request->validated();
 
         $data = $request->all();
-        #necessário, pois não é obrigatório atualizar a imagem
+        
         if ($request->file('photo') != null){
             $path = $request->file('photo')->store('posts',"public");
             $data["photo"] = $path;

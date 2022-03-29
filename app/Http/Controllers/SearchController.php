@@ -8,8 +8,8 @@ use App\Models\Advert;
 class SearchController extends Controller
 {
 
-        public function list(Request $request){
-    //Gate::authorize('viewAny', Advert::class);
+    public function list(Request $request){
+    
     
     $pagination = Advert::orderBy("title");
 
@@ -18,6 +18,7 @@ class SearchController extends Controller
         $pagination->orwhere("model","like","%$request->busca%");
         $pagination->orwhere("manuf_year","like","%$request->busca%");
         $pagination->orwhere("mileage","like","%$request->busca%");
+        $pagination->orwhere("color","like","%$request->busca%");
         $pagination->orwhere("categories.name","like","%$request->busca%");
         $pagination->orwhere("types.name","like","%$request->busca%");
 
@@ -25,7 +26,6 @@ class SearchController extends Controller
         $pagination->join('types', 'types.id', '=', 'adverts.type_id');
     }
 
-    #$pagination->dd();
 
 
     return view("admin.advert.index", ["list"=>$pagination->paginate(3)]);

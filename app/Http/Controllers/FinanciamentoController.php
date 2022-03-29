@@ -34,8 +34,10 @@ class FinanciamentoController extends Controller
         $this->validator($arr);
         
         $resultado = Financiamento::calcular($arr['valorEntrada'], $arr['quantidadeParcela'], $advert->price);
+        $total = $resultado*$arr['quantidadeParcela'] + $arr['valorEntrada'];
+        
     
-        return view("financiamento.form", ['data' => $advert, 'res' => $resultado]);
+        return view("financiamento.form", ['data' => $advert, 'res' => $resultado, 'total' => $total]);
     }
 
     public function index(Advert $advert){
