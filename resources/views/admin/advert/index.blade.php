@@ -59,7 +59,9 @@
                                               <p class="card-text"><small class="text-muted">{{__('Ad Date')}}: {{$item->created_at->format('d/m/Y')}}</small></p>
                                               
                                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                             
+                                         
+                                            
+
                                                 <a href="{{route("financiamento", $item)}}">
                                                     <button class="btn btn-primary me-md-2" type="button"> 
                                                         {{ __('View') }}

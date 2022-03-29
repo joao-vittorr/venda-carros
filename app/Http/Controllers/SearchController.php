@@ -26,14 +26,15 @@ class SearchController extends Controller
         $pagination->join('types', 'types.id', '=', 'adverts.type_id');
     }
 
-
+    
 
     return view("admin.advert.index", ["list"=>$pagination->paginate(3)]);
 }
 
     public function index(Request $request){
+
         $data = Advert::all();
-        return view("data", $data);
+        return view("index", ["data"=>$data]);
     }
   
 }

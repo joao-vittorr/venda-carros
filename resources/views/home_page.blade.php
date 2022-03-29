@@ -55,7 +55,7 @@
             </div>
         </header>
 
-        <!-- Grid de veículos mais buscados -->
+        <!-- Grid de últimos anúncios  -->
         <div class="row g-0 p-5 borda features-icons bg-light">
         <h1 class="blue text-white borda-redonda texte-center">Últimos Anúncios</h1>
         </div>
