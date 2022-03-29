@@ -50,6 +50,7 @@
                             
 
                                         @foreach ($list as $item)
+                                            @can('update',$item) 
                                             <tr>
                                                 <td>
                                                  <div class="card mb-3" style="max-width: 100%; max-height: 50%;">
@@ -95,17 +96,22 @@
                                                   </div>
             
                                             </tr>
+                                            
+                                            @endcan 
                                         @endforeach
 
+                                       
                                        
 
                                     </tbody>
 
-                                   
 
                                   </table>
 
-                                  {{ $list->links() }}
+                                 
+                                     {{ $list->links() }}   
+                              
+                                  
                 
                             </div>
                             

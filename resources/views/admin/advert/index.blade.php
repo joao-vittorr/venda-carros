@@ -39,8 +39,9 @@
                     <table class="table">
                     <h1 class="container-fluid">{{ __('Advertisement') }}</h1>
                         <tbody>
-                            
+                           
                             @foreach ($list as $item)
+                            
                                 <tr>
                                     <td>
                                      <div class="card mb-3" style="max-width: 100%;">
@@ -86,8 +87,9 @@
                                       </div>
 
                                 </tr>
-                            @endforeach
-
+                            
+                        
+                        @endforeach      
                         </tbody>
                       </table>
 
