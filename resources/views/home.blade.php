@@ -62,18 +62,17 @@
                                                           <h5 class="card-title">{{$item->title}}</h5>
                                                           <h5 class="card-title">{{ __('Price')}}: R$ <span style="color: red" class="price">{{$item->price}}</span></h5>
                                                           <p class="card-text">Vendedor: {{$item->user->name}}</p>
+                                                          <p class="card-text">KM: {{$item->mileage}}</p>
                                                           <p class="card-text">{{$item->description}}</p>
                                                           <p class="card-text"><small class="text-muted">{{$item->created_at->format('d/m/Y')}}</small></p>
-                                                          <p class="card-text">ID {{$item->id}}</p>
                                                           
                                                           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                         
+                                                              
                                                             <a href="{{route("financiamento", $item)}}">
                                                                 <button class="btn btn-primary me-md-2" type="button"> 
                                                                     {{ __('View') }}
                                                                 </button>
                                                             </a>
-            
                                                             @can('delete',$item)  
                                                                 <form action="{{route('advert.destroy',$item)}}" method="post">
                                                                     @csrf
